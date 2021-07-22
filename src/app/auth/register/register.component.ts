@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Loader } from "@googlemaps/js-api-loader"
 import { User } from 'src/app/models/user';
+import { AuthService } from '../services/auth.service';
 
 let map: google.maps.Map;
 let markers: google.maps.Marker[] = [];
@@ -17,12 +21,36 @@ export class RegisterComponent implements OnInit {
   public userSaved: string;
 
   
-  constructor() { 
-    this.user = new User('','','','','','','',0,0)
+  constructor(public snackBar: MatSnackBar, private auth: AuthService) { 
+    this.user = new User('','','','','','','','',0,0)
   }
 
-  onSubmit(register:any){
-    register.reset()
+  onSubmit(register){
+    if(this.user.lat==0 && this.user.lng==0){
+      this.snackBar.open('seleccione una ubicación', 'cerrar', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['mat-toolbar', 'mat-warn']
+      });
+    }else{
+      this.auth.register(this.user).subscribe((res:any)=>{
+        if(res.saveUser){
+          this.snackBar.open(res.message, 'cerrar', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['mat-toolbar', 'mat-accent']
+          });
+          register.reset();
+
+        }else{
+          alert(res.message);
+        }
+      },
+      error=> console.log(<any>error)
+      )   
+    } 
   }
 
   ngOnInit(): void {
@@ -67,6 +95,12 @@ export class RegisterComponent implements OnInit {
  deleteMarkers(): void {
   this.hideMarkers();
   markers = [];
+  this.user.lat = 0;
+  this.user.lng = 0;
   this.ley = 0;
 }
+
+
+
 }
+

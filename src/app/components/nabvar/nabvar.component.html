@@ -17,18 +17,22 @@
 
     <!--Boton de usuario-->
 <!-- -->
-    <div class="col-lg-4" id="col3" style="text-align: end;">
-      <a href="/login">Logearte</a>
-      <a href="/register">Registrarse</a>
-      <!--<button  mat-button style="font-size: 15px;"  [matMenuTriggerFor]="menu">
+    <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token == null" >
+      <a routerLink="/login">Logearte</a>
+      <a routerLink="/register">Registrarse</a>
+    </div>
+
+
+    <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token != null" >
+      <button  mat-button style="font-size: 15px;" [matMenuTriggerFor]="menu">
         <span class="material-icons">person</span>
         aaaaaaaa
         <span class="material-icons">keyboard_arrow_down</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before" class="custom-class">
         <button mat-menu-item routerLink="/user">Perfil</button>
-        <button mat-menu-item routerLink="/" >Cerrar Sesion</button>
-      </mat-menu> -->
+        <button mat-menu-item routerLink="/" (click)="logOut()">Cerrar Sesion</button>
+      </mat-menu> 
       
     </div>
     <!-- Fin Boton de usuario-->

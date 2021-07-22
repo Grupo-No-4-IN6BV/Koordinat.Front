@@ -28,10 +28,18 @@ export class AuthService {
     return body || [] || {};
   }
 
-  register(user:any){
+  register(user){
     let params = JSON.stringify(user);
-    return this.http.post(this.uri + 'register', params, this.httpOptions)
+    console.log(params)
+    return this.http.post(this.uri + 'registerUser', params, this.httpOptions)
     .pipe(map(this.extractData));
+  }
+
+  login(user, tokenStatus){
+    user.gettoken = tokenStatus;
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri + 'login', params, this.httpOptions)
+    .pipe(map(this.extractData))
   }
   
 }

@@ -1,10 +1,10 @@
 <div class="container">
     <mat-card>
-      <form  #register="ngForm" (ngSubmit)="onSubmit(register)">
+      <form id="form"  #register="ngForm" (ngSubmit)="onSubmit(register)">
         <div class="row">
             <div class="col-lg-6" > 
                 <div style="display: flex; justify-content: center; align-items: center; text-align: center; ">
-                    <div class="full" id="map"></div>
+                      <div class="full" id="map"></div>
                 </div>
                 <div style="height: 80px;"  *ngIf="ley == undefined || ley == 0 " >
                   <p>Selecciona donde vides<span class="material-icons">home</span></p>
@@ -15,40 +15,54 @@
             <div class="col-lg-6">
                 <h1>Registrarse</h1>
                 <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Nombre de Usuario</mat-label>
+                      <input matInput [(ngModel)]="user.username" name="names" #names="ngModel" autocomplete="off" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Fecha de Nacimineto</mat-label>
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateage" name="dataage" >
+                      <mat-datepicker-toggle matSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Nombres</mat-label>
-                            <input matInput [(ngModel)]="user.names" name="names" #names="ngModel" autocomplete="off">
+                            <input matInput [(ngModel)]="user.name" name="name" #names="ngModel" autocomplete="off" required>
                           </mat-form-field>
                     </div>
                     <div class="col-lg-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Apellidos</mat-label>
-                            <input matInput [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" autocomplete="off" type="text">
+                            <input matInput [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" autocomplete="off" type="text" required>
 
                           </mat-form-field>
                     </div>
                 </div>
+                
+                  
                 <mat-form-field appearance="outline">
-                    <mat-label>Correo Electrónico</mat-label>
-                    <input matInput [(ngModel)]="user.email" name="email" #email="ngModel" autocomplete="off" type="text">
-                    <mat-icon matSuffix>alternate_email</mat-icon>
-                  </mat-form-field>
+                  <mat-label>Correo Electrónico</mat-label>
+                  <input matInput [(ngModel)]="user.email" name="email" #password="ngModel" autocomplete="off" type="password" required>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
                   <mat-form-field appearance="outline">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" autocomplete="off" type="password">
+                    <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" autocomplete="off" type="password" required>
                     <mat-icon matSuffix>https</mat-icon>
                   </mat-form-field>
-                  <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Fecha de Nacimineto</mat-label>
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateage" name="dataage">
-                    <mat-datepicker-toggle matSuffix [for]="picker">
-                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
+                  
                 
-                  <button mat-raised-button type="submit" >Registrarse</button>
+                  <button mat-raised-button type="submit" [disabled]="!register.form.valid">Registrarse</button>
                   
             </div>
         </div>

@@ -4,21 +4,21 @@
 <br>
 <div class="letter">
     <div class="xd">
-        <form>
+        <form id="form" class="form-signin" #login="ngForm" (ngSubmit)="onSubmit()">
             <br>
             <img src="../../../assets/img/user.svg" alt="login" style="width: 150px; margin-bottom: 25px;">
             <h1>Inicio de sesión</h1>
             <mat-form-field appearance="outline">
-                <mat-label>Usuario o Correo electrónico</mat-label>
-                <input matInput autocomplete="off">
+                <mat-label>Usuario </mat-label>
+                <input matInput autocomplete="off" [(ngModel)]="user.username" name="username" required>
                 <mat-icon matSuffix>alternate_email</mat-icon>
               </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Contraseña</mat-label>
-                <input matInput autocomplete="off" type="password">
+                <input matInput autocomplete="off" type="password" [(ngModel)]="user.password" name="username" required>
                 <mat-icon matSuffix>https</mat-icon>
               </mat-form-field>
-              <button mat-raised-button color="accent" style="margin-top: 15px; margin-bottom: 15px;">Iniciar Sesión</button>
+              <button mat-raised-button color="accent" [disabled]="!login.form.valid" type="submit">Iniciar Sesión</button>
         </form>
       </div>
 </div>
