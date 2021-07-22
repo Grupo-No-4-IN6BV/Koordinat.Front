@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  public uri!: string;
+  public uri: string;
   public token:any;
   public user: any;
   public userSelect: any;
@@ -34,5 +34,4 @@ export class AuthService {
     .pipe(map(this.extractData));
   }
   
-
 }

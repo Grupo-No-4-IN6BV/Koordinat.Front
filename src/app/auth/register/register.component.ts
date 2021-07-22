@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   public ley: any;
   public user!: User;
-  public userSaved!: string;
+  public userSaved: string;
 
   
   constructor() { 
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     const loader = new Loader({
-      apiKey: "AIzaSyB71ABfUtlc4B5MBbHoOS2bKnhYqLqCfxU",
+      apiKey: "AIzaSyBs2lOkc7xTfnd5Yf7c5UNm3i4ztaQgSPo",
     });
     
     loader.load().then(() => {
