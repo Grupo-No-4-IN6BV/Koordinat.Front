@@ -1,3 +1,44 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+.col-lg-4{
+  width: 33.33%;
+  font-family: Gill Sans, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  
+}
+
+a{
+  color: black;
+  margin-right: 15px;
+}
+
+.row{
+  height: 50px;
+  width: 101%;
+  margin-inline: -1px;
+}
+
+#Nav{
+  background-color: rgb(255, 255, 255);
+
+}
+
+#pog{
+  padding-inline: 15px;
+  float: left;
+}
+
+#col2{
+  
+  justify-content:center;
+  align-items:center;
+  align-content: center;
+}
+
+#btnNav{
+  background-color: transparent;
+  color: black;
+}

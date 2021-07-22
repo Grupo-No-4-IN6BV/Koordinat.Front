@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "koordinatg4": {
+      "hosting": {
+        "koordinatUI": [
+          "koordinatg4"
+        ]
+      }
+    }
+  }
+}

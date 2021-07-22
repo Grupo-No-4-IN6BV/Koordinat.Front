@@ -13,3 +13,27 @@ body{
       background-attachment: fixed;
       background-size: cover;
   }
+
+
+/* width */
+::-webkit-scrollbar {
+  width:7px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 2px grey; 
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray; 
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #230140
+}

@@ -7,10 +7,15 @@ import { HomeComponent } from './components/home/home.component';
 import { NabvarComponent } from './components/nabvar/nabvar.component';
 import { HelpClientComponent, HelpComponent, HelpInfoComponent, HelpSellerComponent, HelpTermsacodesComponent } from './components/help/help.component';
 import { UserComponent, UserDeleteComponent } from './components/user/user.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './styles/material.module';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -34,12 +39,16 @@ import { MaterialModule } from './styles/material.module';
     HelpInfoComponent,
     HelpSellerComponent,
     HelpTermsacodesComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MaterialModule,
+    BrowserAnimationsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent],

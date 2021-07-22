@@ -1,0 +1,103 @@
+//CSS GENERAL 
+body {
+    background: linear-gradient(#ccc, #fff);
+    font: 14px sans-serif;
+    padding: 20px;
+  }
+  .letter {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 26px auto 0;
+    max-width: 800px;
+    min-height: 500px;
+    padding: 24px;
+    position: relative;
+    width: 80%;
+  }
+  .letter:before, .letter:after {
+    content: "";
+    height: 98%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  .letter:before {
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    left: -5px;
+    top: 4px;
+    transform: rotate(-2.5deg);
+  }
+  .letter:after {
+    background: #f6f6f6;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    right: -3px;
+    top: 1px;
+    transform: rotate(1.4deg);
+  }
+
+  .title{
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 37px;
+    font-family: Gill Sans, sans-serif; 
+  }
+
+  .body{
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: Gill Sans, sans-serif; 
+  }
+
+  #col1{
+    width: 50%;
+    float: left;
+  }
+
+  #col2{
+    width: 50%;
+    float: right;
+  }
+
+  .qstion{
+    padding: 12px;
+      
+  }
+
+  .img{
+    
+    width: 150px;
+    height: 150px; 
+  }
+
+  // CSS SERVICIO AL CLIENTE
+
+ #Files{
+    align-content: center;
+    text-align: center;
+ }
+
+ #saTitle{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 37px;
+    font-family: Gill Sans, sans-serif; 
+ }
+
+ #saSubtitle{
+    text-align: center;
+    font-weight: bold;
+ }
+
+ #saBody{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: Gill Sans, sans-serif; 
+ }
+
+
+    
