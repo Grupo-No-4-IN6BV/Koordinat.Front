@@ -1,28 +1,26 @@
-<STYLE>a {text-decoration: none;} </STYLE> 
+
   <div class="row" id="Nav">
     <div class="col-lg-4" id="col1">
-    <a id="btnNav" routerLink="login">
-      <mat-icon>place</mat-icon>
-      <span>KOORDINAT</span>
-    </a>
+      <a routerLink="/" style="font-size: 20px;"> <img src="../../../assets/img/objetivo.svg" alt="" style="width: 25px; margin-right: 10px; margin-top: -5px;">KOORDINAT</a>
     </div>
-    <STYLE>a {text-decoration: none;} </STYLE> 
+
+
+
     <div class="col-lg-4" id="" style="display: flex; justify-content: center; align-items: center;">
-      <div id="pog"><a id="btnNav" routerLink="login"><mat-icon>shopping_cart</mat-icon></a></div>
-      <div id="pog"><a id="btnNav" routerLink="login"><mat-icon>store</mat-icon></a></div>
-      <div id="pog"><a id="btnNav" routerLink="login"><mat-icon>local_offer</mat-icon></a></div>
-      <div id="pog"><a id="btnNav" routerLink="login"><mat-icon>streetview</mat-icon></a></div>
+      <div id="pog" #target ><button mat-button id="btnNav" routerLink="login"><mat-icon >shopping_cart</mat-icon></button></div>
+      <div id="pog" #cars><button mat-button id="btnNav" routerLink="login"><mat-icon>store</mat-icon></button></div>
+      <div id="pog" #oferts><button mat-button id="btnNav" routerLink="login"><mat-icon>local_offer</mat-icon></button></div>
+      <div id="pog" #catgs><button mat-button id="btnNav" routerLink="login"><mat-icon>streetview</mat-icon></button></div>
     </div>
 
-
-    <!--Boton de usuario-->
-<!-- -->
+    
+<!-- Botones Auth -->
     <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token == null" >
-      <a routerLink="/login">Logearte</a>
+      <a routerLink="/login">Logearse</a>
       <a routerLink="/register">Registrarse</a>
     </div>
 
-
+<!--Boton de usuario-->
     <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token != null" >
       <button  mat-button style="font-size: 15px;" [matMenuTriggerFor]="menu">
         <span class="material-icons">person</span>
@@ -41,31 +39,31 @@
 
 
 
+  <!-- Mensaje Carrito -->
+  <ng-container [appPopper]="cars" [target]="car"></ng-container>
+  <span  class="popper" #car>
+    <span class="popper__arrow"></span>
+    Carrito
+  </span>
+  <!-- Mensaje Tienda -->
+  <ng-container [appPopper]="target" [target]="tooltip"></ng-container>
+  <span  class="popper" #tooltip>
+    <span class="popper__arrow"></span>
+    Tienda
+  </span>
+  <!-- Mensaje Carrito -->
+  <ng-container [appPopper]="oferts" [target]="ofert"></ng-container>
+  <span  class="popper" #ofert>
+    <span class="popper__arrow"></span>
+    Ofertas
+  </span>
+  <!-- Mensaje Carrito -->
+  <ng-container [appPopper]="catgs" [target]="catg"></ng-container>
+  <span  class="popper" #catg>
+    <span class="popper__arrow"></span>
+    Catalogo
+  </span>
 
 
-<!-- <STYLE>a {text-decoration: none;} </STYLE> 
-<mat-toolbar color="primary" >
-  <div id="toolNav">
-    <a class="button clear" >
-      <mat-icon>map</mat-icon>
-      <span>KOORDINAT</span>
-    </a>
-    
-    
-    <div id="divNav"  class="pilín">
-      <mat-icon>map</mat-icon>
-      <mat-icon>map</mat-icon>
-      <mat-icon>map</mat-icon>  
-      <mat-icon>map</mat-icon>
-    </div>
 
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </div>  
-</mat-toolbar>   --> 
 

@@ -35,6 +35,13 @@ export class AuthService {
     .pipe(map(this.extractData));
   }
 
+  registerBusiness(business){
+    let params = JSON.stringify(business);
+    console.log(params)
+    return this.http.post(this.uri + 'registerBusiness', params, this.httpOptions)
+    .pipe(map(this.extractData));
+  }
+
   login(user, tokenStatus){
     user.gettoken = tokenStatus;
     let params = JSON.stringify(user);

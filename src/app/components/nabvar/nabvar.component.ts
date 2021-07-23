@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
+import { createPopper } from '@popperjs/core';
 
 @Component({
   selector: 'app-nabvar',
@@ -29,5 +30,6 @@ export class NabvarComponent implements OnInit {
     this.token = null;
     this.router.navigateByUrl('');
   }
+
 
 }

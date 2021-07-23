@@ -11,13 +11,17 @@ import { UserComponent, UserDeleteComponent } from './components/user/user.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './styles/material.module';
 import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { RegisterComponent  } from './auth/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterBusinessComponent } from './auth/register-business/register-business.component';
+import { PopperDirective } from './directives/popper.directive';
+import { BUCKET } from '@angular/fire/storage';
+
 
 
 @NgModule({
@@ -34,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     // <<Auth>>
     LoginComponent,
     RegisterComponent,
+    RegisterBusinessComponent,
+
 
     // <<Services Help>>
     HelpComponent,
@@ -41,8 +47,13 @@ import { HttpClientModule } from '@angular/common/http';
     HelpInfoComponent,
     HelpSellerComponent,
     HelpTermsacodesComponent,
+    RegisterBusinessComponent,
+    PopperDirective,
+
+
     
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
+  providers: [
+    {provide: BUCKET, useValue: 'gs://koordinatg4.appspot.com/'}],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

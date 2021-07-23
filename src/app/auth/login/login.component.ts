@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('lol')
     this.auth.login(this.user, 'true').subscribe((res:any)=>{
       if(!res.token){
         this.snackBar.open(res.message, 'cerrar', {
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['mat-toolbar', 'mat-warn']
         });
-      }else{
+      }else if(res.user){
         delete res.user.password;
         this.token = res.token;
         console.log(res.user)
@@ -41,6 +40,22 @@ export class LoginComponent implements OnInit {
         }else{
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', JSON.stringify(res.user))
+
+          this.snackBar.open(res.message, 'cerrar', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['mat-toolbar', 'mat-accent']
+          });
+        }
+      }else{
+        delete res.business.password;
+        this.token = res.token;
+        if(this.token.length <= 0){
+          alert('el Token no se genero de manera correcta') 
+        }else{
+          localStorage.setItem('token', this.token)
+          localStorage.setItem('user', JSON.stringify(res.business))
 
           this.snackBar.open(res.message, 'cerrar', {
             duration: 2000,
