@@ -1,30 +1,66 @@
 
   <div class="row" id="Nav">
-    <div class="col-lg-4" id="col1">
+    <div class="col-lg-4" id="col1" style="width: 33.33%;">
       <a routerLink="/" style="font-size: 20px;"> <img src="../../../assets/img/objetivo.svg" alt="" style="width: 25px; margin-right: 10px; margin-top: -5px;">KOORDINAT</a>
     </div>
 
 
 
-    <div class="col-lg-4" id="" style="display: flex; justify-content: center; align-items: center;">
-      <div id="pog" #target ><button mat-button id="btnNav" routerLink="login"><mat-icon >shopping_cart</mat-icon></button></div>
-      <div id="pog" #cars><button mat-button id="btnNav" routerLink="login"><mat-icon>store</mat-icon></button></div>
-      <div id="pog" #oferts><button mat-button id="btnNav" routerLink="login"><mat-icon>local_offer</mat-icon></button></div>
-      <div id="pog" #catgs><button mat-button id="btnNav" routerLink="login"><mat-icon>streetview</mat-icon></button></div>
+    <div class="col-lg-4" id="" style="display: flex; justify-content: center; align-items: center; width: 33.33%;">
+      <div id="pog" #target ><button mat-button id="btnNav" routerLink="/"><mat-icon>store</mat-icon></button></div>
+      <div id="pog" #oferts><button mat-button id="btnNav" routerLink="ofertas"><mat-icon>local_offer</mat-icon></button></div>
+      <div id="pog" #catgs><button mat-button id="btnNav" routerLink="catalogo"><mat-icon>streetview</mat-icon></button></div>
+
+        <div  id="pog" *ngIf="vrf!=null" ><button mat-button disabled id="btnNav" style="color: black;"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+        <div id="pog" *ngIf="vrf==0 && vrf!=null" #cars><button mat-button id="btnNav" routerLink="carrito"><mat-icon >shopping_cart</mat-icon></button>  <ng-container [appPopper]="cars" [target]="car"></ng-container>
+          <span  class="popper" #car>
+            <span class="popper__arrow"></span>
+            Carrito
+          </span></div>
+        <div id="pog" *ngIf="vrf==0 && vrf!=null" #wlists><button mat-button id="btnNav" routerLink="deseos"><mat-icon >fact_check</mat-icon></button>  <ng-container [appPopper]="wlists" [target]="wlist"></ng-container>
+          <span  class="popper" #wlist>
+            <span class="popper__arrow"></span>
+            Lista de Deseos
+          </span></div>
+        <div  id="pog" *ngIf="vrf==1 && vrf!=null"  #users><button  mat-button id="btnNav" routerLink="users"><mat-icon>people</mat-icon></button><ng-container [appPopper]="users" [target]="usern"></ng-container>
+          <span  class="popper" #usern>
+            <span class="popper__arrow"></span>
+            Usuarios
+          </span></div>
+        <div id="pog" *ngIf="vrf==1 && vrf!=null"  #businesses><button mat-button id="btnNav" routerLink="empresas"><mat-icon>business</mat-icon></button>  <ng-container [appPopper]="businesses" [target]="business"></ng-container>
+          <span  class="popper" #business>
+            <span class="popper__arrow"></span>
+            Empresas
+          </span></div>
+        <div id="pog" *ngIf="vrf==1 && vrf!=null" #categorys><button mat-button id="btnNav" routerLink="categorias"><mat-icon>category</mat-icon></button>    <ng-container [appPopper]="categorys" [target]="category"></ng-container>
+          <span  class="popper" #category>
+            <span class="popper__arrow"></span>
+            Categorias
+          </span></div>
+
+        
+      
+         <!--Mostrar con Rol Business-->
+      <div id="pog" *ngIf="vrf==2 && vrf!=null" #products><button mat-button id="btnNav" routerLink="productos"><mat-icon>inventory_2</mat-icon></button>    <ng-container [appPopper]="products" [target]="product"></ng-container>
+        <span  class="popper" #product>
+          <span class="popper__arrow"></span>
+          Productos
+        </span></div>
+      <!---->
     </div>
 
     
 <!-- Botones Auth -->
-    <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token == null" >
+    <div class="col-lg-4" id="col3" style="text-align: end; width: 33.33%;" *ngIf="token == null" >
       <a routerLink="/login">Logearse</a>
       <a routerLink="/register">Registrarse</a>
     </div>
 
 <!--Boton de usuario-->
-    <div class="col-lg-4" id="col3" style="text-align: end;" *ngIf="token != null" >
+    <div class="col-lg-4" id="col3" style="text-align: end; width: 33.33%;" *ngIf="token != null" >
       <button  mat-button style="font-size: 15px;" [matMenuTriggerFor]="menu">
         <span class="material-icons">person</span>
-        aaaaaaaa
+        {{user.email}} 
         <span class="material-icons">keyboard_arrow_down</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before" class="custom-class">
@@ -39,12 +75,7 @@
 
 
 
-  <!-- Mensaje Carrito -->
-  <ng-container [appPopper]="cars" [target]="car"></ng-container>
-  <span  class="popper" #car>
-    <span class="popper__arrow"></span>
-    Carrito
-  </span>
+
   <!-- Mensaje Tienda -->
   <ng-container [appPopper]="target" [target]="tooltip"></ng-container>
   <span  class="popper" #tooltip>
@@ -63,7 +94,3 @@
     <span class="popper__arrow"></span>
     Catalogo
   </span>
-
-
-
-

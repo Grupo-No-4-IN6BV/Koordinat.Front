@@ -1,9 +1,15 @@
-agm-map{
-    width: 600px;
-    height: 600px;
+.container{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.full{
-    width: 600px;
-    height: 600px;
+.admin{
+    color: white;
+    border-color: white;
+    padding: 15px;
+    width: 200px;
+    margin: 25px;
 }
+

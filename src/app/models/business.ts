@@ -6,7 +6,8 @@ export class Business{
         public description: string,
         public phone: Number,
         public image: string,
-        public address: [],
+        public lat: number,
+        public lng: number,
         public products: [],
     ){}
 }

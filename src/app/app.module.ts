@@ -16,11 +16,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterBusinessComponent } from './auth/register-business/register-business.component';
 import { PopperDirective } from './directives/popper.directive';
 import { BUCKET } from '@angular/fire/storage';
+import { UsersComponent } from './components/users/users.component';
+import { BusinessesComponent } from './components/businesses/businesses.component';
+import { CategoryComponent } from './components/category/category.component';
+
+import { ProductComponent } from './components/product/product.component';
+import { WhiteListComponent } from './components/white-list/white-list.component';
+import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
+import { OfferComponent } from './components/offer/offer.component';
+import { CatalogueComponent } from './components/catalogue/catalogue.component';
+
 
 
 
@@ -31,9 +40,11 @@ import { BUCKET } from '@angular/fire/storage';
     HomeComponent,
     NabvarComponent,
 
+
     // <<User>>
     UserComponent,
     UserDeleteComponent,
+    UsersComponent,
 
     // <<Auth>>
     LoginComponent,
@@ -47,11 +58,17 @@ import { BUCKET } from '@angular/fire/storage';
     HelpInfoComponent,
     HelpSellerComponent,
     HelpTermsacodesComponent,
-    RegisterBusinessComponent,
     PopperDirective,
 
+    //Business
+    BusinessesComponent,
+    CategoryComponent,
+    ProductComponent,
+    WhiteListComponent,
+    ShoopingCarComponent,
+    OfferComponent,
+    CatalogueComponent,
 
-    
   ],
 
   imports: [

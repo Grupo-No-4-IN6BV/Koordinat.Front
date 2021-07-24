@@ -1,4 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 //CSS GENERAL 
+
+
 body {
     background: linear-gradient(#ccc, #fff);
     font: 14px sans-serif;
@@ -9,7 +12,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     margin: 26px auto 0;
     max-width: 800px;
-    min-height: 500px;
+    min-height: 600px;
     padding: 24px;
     position: relative;
     width: 80%;
@@ -99,5 +102,89 @@ body {
     font-family: Gill Sans, sans-serif; 
  }
 
+//TERMINOS Y CONDICIONES 
 
+#tcTitle{
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 37px;
+  font-family: Gill Sans, sans-serif; 
+}
+
+#tcBody{
+  text-align: justify;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: Gill Sans, sans-serif;
+  padding: 10px;
+}
     
+#tcSubtitle{
+  text-align: center;
+  font-weight: bold;
+}
+
+//BARRA DE BUSQUEDA
+
+
+
+.field {
+  display:flex;
+  position:relative;
+  width:30%;
+  height: 40px;
+  flex-direction:row;
+  border-radius: 5px  0px 5px 10px;
+}
+
+.field>input[type=text],
+.field>button {
+  display:block;
+  font:1.2em 'Montserrat Alternates';
+  border-radius: 0px  5px 5px 0px;
+  border: none;
+}
+
+.field>input[type=text] {
+  flex:1;
+  padding:0.6em;
+  border:0.2em solid black;
+  border-radius: 5px  0px 0px 5px;
+  
+}
+
+.field>button {
+  padding:0.6em 0.8em;
+  background-color:black;
+  color:white;
+  border-radius: 0px  5px 5px 0px;
+  border: none;
+}
+
+//CSS HELP SELLER
+
+#ssTitle{
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 37px;
+  font-family: Gill Sans, sans-serif; 
+}
+
+#ssBody{
+  text-align: justify;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: Gill Sans, sans-serif;
+  padding: 10px;
+  padding-bottom: 40px;
+}
+    
+#ssSubtitle{
+  padding-top: 40px;
+  text-align: center;
+  font-weight: bold;
+}

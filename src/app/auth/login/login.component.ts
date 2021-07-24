@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../services/auth.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public token: string;
   public message;
 
-  constructor(public snackBar: MatSnackBar, private auth: AuthService) { 
+  constructor( private router: Router, public snackBar: MatSnackBar, private auth: AuthService) { 
     this.user = new User('','','','','','','','',0,0)
   }
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+    localStorage.clear();
     this.auth.login(this.user, 'true').subscribe((res:any)=>{
       if(!res.token){
         this.snackBar.open(res.message, 'cerrar', {
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['mat-toolbar', 'mat-accent']
           });
+          this.router.navigateByUrl('');
         }
       }else{
         delete res.business.password;
@@ -63,6 +66,7 @@ export class LoginComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['mat-toolbar', 'mat-accent']
           });
+          this.router.navigateByUrl('');
         }
       }
     },

@@ -28,7 +28,7 @@ export class RegisterBusinessComponent implements OnInit {
 
   constructor( public componentFactoryResolver: ComponentFactoryResolver, public snackBar: MatSnackBar, private auth: AuthService,
     private storage: AngularFireStorage) { 
-    this.business = new Business('','','','',null,'',[],[])
+    this.business = new Business('','','','',null,'',0,0,[])
   }
 
   ngOnInit(): void {
@@ -45,7 +45,8 @@ export class RegisterBusinessComponent implements OnInit {
 
       map.addListener("click", (event: google.maps.MapMouseEvent) => {
         this.addMarker(event.latLng!);
-
+        this.business.lat = event.latLng!.toJSON().lat
+        this.business.lng = event.latLng!.toJSON().lng
       });
     });   
 }
@@ -73,28 +74,40 @@ export class RegisterBusinessComponent implements OnInit {
  deleteMarkers(): void {
   this.hideMarkers();
   markers = [];
+  this.business.lat = 0;
+  this.business.lng = 0;
   this.ley = 0;
 }
 
 
 
   onSubmit(register){
-    this.auth.registerBusiness(this.business).subscribe((res:any)=>{
-      if(res.businessSaved){
-        this.snackBar.open(res.message, 'cerrar', {
-          duration: 2000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-          panelClass: ['mat-toolbar', 'mat-accent']
-        });
-        register.reset();
-      }else{
-        alert(res.message);
-      }
-    },
-    error=> console.log(<any>error))
-  }
-
+    if(this.business.lat==0 && this.business.lng==0){
+      this.snackBar.open('seleccione una ubicación', 'cerrar', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['mat-toolbar', 'mat-warn']
+      });
+    }else{
+      this.auth.registerBusiness(this.business).subscribe((res:any)=>{
+        if(res.businessSaved){
+          this.snackBar.open(res.message, 'cerrar', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['mat-toolbar', 'mat-accent']
+          });
+          register.reset();
+        }else{
+          alert(res.message);
+        }
+      },
+      error=> console.log(<any>error))
+    }
+  
+    }
+    
   private image: any;
   private filePath: any;
   private downloadURL: Observable<string>

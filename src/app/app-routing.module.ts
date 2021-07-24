@@ -3,14 +3,32 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterBusinessComponent } from './auth/register-business/register-business.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { BusinessesComponent } from './components/businesses/businesses.component';
+import { CatalogueComponent } from './components/catalogue/catalogue.component';
+import { CategoryComponent } from './components/category/category.component';
 import { HelpClientComponent, HelpComponent, HelpInfoComponent, HelpSellerComponent, HelpTermsacodesComponent } from './components/help/help.component';
 import { HomeComponent } from './components/home/home.component';
+import { OfferComponent } from './components/offer/offer.component';
+import { ProductComponent } from './components/product/product.component';
+import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
 
-import { UserComponent, UserDeleteComponent } from './components/user/user.component';
+import { UserComponent } from './components/user/user.component';
+import { UsersComponent } from './components/users/users.component';
+import { WhiteListComponent } from './components/white-list/white-list.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'user', component: UserComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'deseos', component: WhiteListComponent},
+  {path: 'carrito', component: ShoopingCarComponent},
+  {path: 'ofertas', component: OfferComponent},
+  {path: 'catalogo', component: CatalogueComponent},
+
+  // <<Business>>
+  {path: 'empresas', component: BusinessesComponent},
+  {path: 'categorias', component: CategoryComponent},
+  {path: 'productos', component: ProductComponent},
 
   // << Auth >> 
   {path: 'login', component: LoginComponent}  ,
