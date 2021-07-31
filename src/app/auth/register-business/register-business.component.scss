@@ -1,5 +1,5 @@
-.container{
-    height: 90vh;
+/*.container{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,11 +12,7 @@
     text-align: center;
     background-color: rgb(255, 255, 255, .8);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
-
-
-
-}
+    backdrop-filter: blur(10px);*/
 
 .full{
   width: 100%;
@@ -95,3 +91,49 @@ h1{
 }
 }
 
+
+//ASDFASDGASDDGAS
+.letter {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 26px auto 0;
+  width: 950px;
+  height: 550px;
+  padding: 50px;
+  position: relative;
+  align-items: center;
+  text-align: center;;
+}
+.letter:before, .letter:after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.letter:before {
+  background: #fafafa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-2.5deg);
+}
+.letter:after {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+}
+
+#map{
+  min-width: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 500px;
+  border-radius: 10px;
+  border-color: black;
+}

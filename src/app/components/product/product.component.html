@@ -1,1 +1,66 @@
-<p>product works!</p>
+<br><br><br>
+<div class="container">
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">inventory_2</span>Productos</button>
+</div>
+<div class="container1" style="margin-bottom: 15px;">
+    <div id="tblOne">
+        <div id="cl1">
+            <div class="field" id="searchform">
+                <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" type="search" name="search">
+                <button type="button" id="search">Buscar</button>
+            </div>
+            <div id="cl2">
+                <button mat-raised-button (click)="openSaveCategory()" ><span class="material-icons">inventory_2</span>  Agregar Productos  <span class="material-icons">add</span></button>
+            </div>
+        </div>  
+    </div>
+</div>
+
+<div class="container0">
+    <div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
+        <div class="col-lg-1" style=" line-height: 40px;">
+            <p>Imagen</p>
+        </div>
+        <div class="col-lg-3" style=" line-height: 40px;">
+            <p>Nombre</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Categoria</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Precio</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Existencias</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Acciones</p>
+        </div> 
+    </div>
+</div>
+<div class="container0" *ngFor="let product of products;  let i = index ">
+    <div class="row" id="table" style="text-align: center; ">
+        <div class="col-lg-1" style="line-height: 40px;">
+            <img src="{{product['img1']}}" alt="Sin imagenes" style=" width: 35px; height: 35px;">
+        </div>
+        <div class="col-lg-3" style=" line-height: 40px;">
+            <p>{{product['name']}}</p>
+        </div>
+        <ng-container *ngFor="let category of categories">
+            <div class="col-lg-2" style="line-height: 40px;" *ngIf="product['category'] == category['_id']" >
+                <p >{{category['name']}}</p>
+            </div>
+        </ng-container>
+        <div class="col-lg-2" style=" line-height: 40px; ">
+            <p>Q.{{product['price']}}.00</p>
+        </div>
+        <div class="col-lg-2" style="line-height: 40px;">
+            <p>{{product['stock']}}</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <button mat-icon-button  style="color: black" type="button" (click)="openProduct(product)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button  color="warn" type="button" (click)="removeProduct(product)"><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button  style=" color: #fca503; " type="submit"><mat-icon>edit</mat-icon></button>
+        </div>
+    </div>
+</div>

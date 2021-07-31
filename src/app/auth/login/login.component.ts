@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
       if(!res.token){
         this.snackBar.open(res.message, 'cerrar', {
           duration: 2000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
           panelClass: ['mat-toolbar', 'mat-warn']
         });
       }else if(res.user){
@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
 
           this.snackBar.open(res.message, 'cerrar', {
             duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
+            horizontalPosition: 'left',
+            verticalPosition: 'bottom',
             panelClass: ['mat-toolbar', 'mat-accent']
           });
           this.router.navigateByUrl('');
@@ -62,8 +62,8 @@ export class LoginComponent implements OnInit {
 
           this.snackBar.open(res.message, 'cerrar', {
             duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
+            horizontalPosition: 'left',
+            verticalPosition: 'bottom',
             panelClass: ['mat-toolbar', 'mat-accent']
           });
           this.router.navigateByUrl('');

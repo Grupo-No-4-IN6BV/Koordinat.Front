@@ -37,7 +37,7 @@ const routes: Routes = [
 
   // <<Services Help>>
   {path: 'ayuda', component: HelpComponent},
-  {path: 'informacion/empresa', component: HelpInfoComponent},
+  {path: 'informacion', component: HelpInfoComponent},
   {path: 'ayuda/vendedor', component: HelpSellerComponent},
   {path: 'terminos&condiciones', component: HelpTermsacodesComponent},
   {path: 'ayuda/usuario', component: HelpClientComponent},

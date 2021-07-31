@@ -1,22 +1,53 @@
+<br><br><br>
 <div class="container">
     <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">category</span>Categorias</button>
 </div>
-<div class="container1">
+<div class="container1" style="margin-bottom: 15px;">
     <div id="table1">
-        <button mat-raised-button ><span class="material-icons" style="margin-right: 10px;">category</span>Agregar Categorias <span class="material-icons"  style="margin-left: 10px;">add</span></button>
+        <button mat-raised-button (click)="openSaveCategory()" ><span class="material-icons" style="margin-right: 10px;">category</span>Agregar Categorias <span class="material-icons"  style="margin-left: 10px;">add</span></button>
     </div>
+</div>
 
-</div>
 <div class="container0">
-<div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
-    <div class="col-lg-4" style="width: 33.33%; line-height: 40px;">
-        <p>Nombre</p>
-    </div>
-    <div class="col-lg-4" style="width: 33.33%; line-height: 40px;">
-        <p>Nombre</p>
-    </div>
-    <div class="col-lg-4" style="width: 33.33%; line-height: 40px;">
-        <p>Nombre</p>
+    <div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
+        <div class="col-lg-1" style=" line-height: 40px;">
+            <p>Icono</p>
+        </div>
+        <div class="col-lg-3" style=" line-height: 40px;">
+            <p>Nombre</p>
+        </div>
+        <div class="col-lg-6" style=" line-height: 40px;">
+            <p>Descripción</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Acciones</p>
+        </div>
     </div>
 </div>
+
+<div class="container0" *ngFor="let category of categories">
+    <div class="row" id="table" style="text-align: center; ">
+        <div class="col-lg-1" style="line-height: 40px;">
+            <img src="{{category['image']}}" style="width: 35px;">
+        </div>
+        <div class="col-lg-3" style="line-height: 40px;">
+            <p>{{category['name']}}</p>
+        </div>
+        <div class="col-lg-6" style=" line-height: 40px; ">
+            <p>{{category['description']}}</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <button mat-icon-button  color="warn" type="button"><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button  style="margin-left: 15px; color: #fca503; " type="submit"><mat-icon>edit</mat-icon></button>
+        </div>
+    </div>
+</div>
+
+
+<div class="feat1">
+    <div class="row" id="feat" style="text-align: center;  border-radius: 0px 0px 5px 5px; ">
+        <div class="col-lg-3" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+        <div class="col-lg-7" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+        <div class="col-lg-2" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+    </div>
 </div>

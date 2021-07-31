@@ -1,0 +1,47 @@
+<div style="width: 80%; margin-left: 220px;">
+    <div class="field" id="searchform">
+        <input  [(ngModel)]="searchName" type="text" id="searchterm" placeholder="¿Necesitas ayuda?" type="search" name="search">
+        <button type="button" id="search">Buscar</button>
+        
+    </div>
+</div>    
+    <br><br><br>
+    <!--
+    <div *ngFor="let product of products |  search: categoryS | searchName: searchName">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{product['name']}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{product['img1']}}">
+            <mat-card-content>
+              <p>{{product['description']}}</p>
+              <ng-container *ngFor="let category of categories">
+                <p *ngIf="product['category'] == category['_id']">categoria: {{category['name']}}</p>
+              </ng-container>
+            </mat-card-content>
+            <mat-card-actions style="text-align: end;">
+              <button mat-icon-button (click)="openProduct(product)"><mat-icon>open_in_new</mat-icon></button>
+              <button mat-icon-button (click)="wishSet(product)"><mat-icon>fact_check</mat-icon></button>
+              <button mat-icon-button><mat-icon>shopping_cart</mat-icon></button>
+            </mat-card-actions>
+          </mat-card>
+-->
+<div id="si">
+  <div id="diosssssss">
+    <div id="allCard" *ngFor="let product of products |  search: categoryS | searchName: searchName">
+      <div id="bodyCard">
+        <div id="headerCard">{{product['name']}}</div>
+        <div><img id="imgCard" src="{{product['img1']}}"></div>
+        <div id="descCard"><p>{{product['description']}}</p></div>
+        <ng-container *ngFor="let category of categories">
+          <p id="catCard" *ngIf="product['category'] == category['_id']">Categoria: {{category['name']}}</p>
+        </ng-container>
+        <mat-card-actions style="text-align: end;">
+          <button mat-icon-button (click)="openProduct(product)"><mat-icon>open_in_new</mat-icon></button>
+          <button mat-icon-button (click)="wishSet(product)"><mat-icon>fact_check</mat-icon></button>
+          <button mat-icon-button><mat-icon>shopping_cart</mat-icon></button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </div>
+</div>

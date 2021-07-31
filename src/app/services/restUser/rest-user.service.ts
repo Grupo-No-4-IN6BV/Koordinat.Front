@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { CONNECTION } from '../global';
 
 @Injectable({
@@ -40,6 +41,25 @@ getUser(){
   }
   return this.user;
 }
+
+
+wishSet(idUser, idProduct){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  return this.http.put(this.uri+idUser+'/'+idProduct+'/wishSet/', {headers: headers})
+  .pipe(map(this.extractData))
 }
 
+removeWish(idUser, idProduct){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  return this.http.put(this.uri+idUser+'/'+idProduct+'/removeWish', {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+}
 

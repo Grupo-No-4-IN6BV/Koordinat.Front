@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-4">
+          <img src="{{product.img1}}" class="logo">
+    </div>
+    <div class="col-lg-8">
+            <h1>{{product.name}} </h1> 
+            <h3>Descripción: {{product.description}}</h3>
+            <h3>Precio: Q.{{product.price}}.00</h3>
+            <h3>Existencias: {{product.stock}}</h3>
+    </div>
+</div>
+
+
+
+<div class="row" style="text-align: center;">
+  <div class="col-lg-2">
+    <img *ngIf=" product.img2 != '' "src="{{product.img2}}" class="imgpromo">
+  </div>
+  <div class="col-lg-2">
+    <img *ngIf=" product.img3 != '' " src="{{product.img3}}" class="imgpromo">
+  </div>
+  <div class="col-lg-2">
+    <img *ngIf=" product.img4 != '' " src="{{product.img4}}" class="imgpromo">
+  </div>
+  <div class="col-lg-2">
+    <img *ngIf=" product.img5 != ''" src="{{product.img5}}" class="imgpromo">
+  </div>
+  <div class="col-lg-4">
+    <button mat-raised-button style="width: 100%; margin-bottom: 15px; background-color: black; color: #fff; margin-top: 10px;" type="submit" *ngIf="data.auth == 'userView'">Agregar al Carrito</button>
+    
+    <button mat-raised-button color="warn" style="width: 100%;" (click)="onNoClick()" *ngIf="data.auth == 'userView'">Cancelar</button>
+    <ng-container *ngIf="data.auth == 'onlyView'" >
+      <br><br><br>
+      <button mat-raised-button color="warn" style="width: 100%; margin-bottom: -15px; background-color: black; color: #fff; margin-top: 10px;" (click)="onNoClick()" >Terminar Vista Previa</button>
+    </ng-container>
+  </div>
+</div>

@@ -27,12 +27,12 @@
             <span class="popper__arrow"></span>
             Usuarios
           </span></div>
-        <div id="pog" *ngIf="vrf==1 && vrf!=null"  #businesses><button mat-button id="btnNav" routerLink="empresas"><mat-icon>business</mat-icon></button>  <ng-container [appPopper]="businesses" [target]="business"></ng-container>
+        <div id="pog" *ngIf="vrf==1 && vrf!=null"  #businesses><button mat-button id="btnNav" routerLink="empresas"><mat-icon>business</mat-icon></button> <ng-container [appPopper]="businesses" [target]="business"></ng-container>
           <span  class="popper" #business>
             <span class="popper__arrow"></span>
             Empresas
           </span></div>
-        <div id="pog" *ngIf="vrf==1 && vrf!=null" #categorys><button mat-button id="btnNav" routerLink="categorias"><mat-icon>category</mat-icon></button>    <ng-container [appPopper]="categorys" [target]="category"></ng-container>
+        <div id="pog" *ngIf="vrf==1 && vrf!=null" #categorys><button mat-button id="btnNav" routerLink="categorias"><mat-icon>category</mat-icon></button> <ng-container [appPopper]="categorys" [target]="category"></ng-container>
           <span  class="popper" #category>
             <span class="popper__arrow"></span>
             Categorias
@@ -47,7 +47,14 @@
           Productos
         </span></div>
       <!---->
+      <div  id="pog" *ngIf="vrf!=null" ><button mat-button disabled id="btnNav" style="color: black;"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+
+      <div id="pog" #infos><button mat-button id="btnNav" routerLink="informacion"><mat-icon>info</mat-icon></button></div>
+      <div id="pog" #helps><button mat-button id="btnNav" routerLink="ayuda"><mat-icon>help</mat-icon></button></div>
+
+
     </div>
+    
 
     
 <!-- Botones Auth -->
@@ -91,6 +98,18 @@
   <!-- Mensaje Carrito -->
   <ng-container [appPopper]="catgs" [target]="catg"></ng-container>
   <span  class="popper" #catg>
+    <span class="popper__arrow"></span>
+    Catalogo
+  </span>
+    <!-- Mensaje Carrito -->
+    <ng-container [appPopper]="infos" [target]="info"></ng-container>
+    <span  class="popper" #info>
+      <span class="popper__arrow"></span>
+      Ayuda
+    </span>
+      <!-- Mensaje Carrito -->
+  <ng-container [appPopper]="helps" [target]="help"></ng-container>
+  <span  class="popper" #help>
     <span class="popper__arrow"></span>
     Catalogo
   </span>

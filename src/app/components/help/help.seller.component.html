@@ -4,18 +4,27 @@
 <div class="letter">
     <div id="files">
         <div class="field" id="searchform">
-            <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" />
+            <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" [(ngModel)]="searchHelpSeller" type="search" name="search" >
             <button type="button" id="search">Buscar
             </button>
         </div>
         <div id="ssTitle">SERVICIO AL VENDEDOR</div> 
-        <div id="ssBody">
-            <div class="qstion">¿Que pasa pa?</div>
-                <div class="qstion">¿Porque lastraño sosio?</div>
-                <div class="qstion">¿Aun tengo razones para vivir? no</div>
+        <div id="ssSubtitle">KOORDINAT.HELPSELLER@OUTLOOK.COM</div>
+        <div id="ssBody" >
+            <div class="qstion" *ngIf="inp == true">
+                <!--Preguntas Frecuentes-->
+                <div id="ssSubtitle"><p>¿Cómo filtro un producto?</p></div>
+                <p>Cuando Andre haga el algoritmo, te digo</p>
+                <!--/Preguntas Frecuentes-->
+            </div>
+            <div *ngIf="inp == false">
+                <div class="qstion" *ngFor="let question of questions | searchHelpSeller:searchHelpSeller">
+                    <div id="ssSubtitle"><p>{{question.titulo}}</p></div>
+                    <p>{{question.descripcion}}</p>
+                </div>
+            </div>
             <br>         
             <div id="ssSubtitle">KOORDINAT.HELPSELLER@OUTLOOK.COM</div>    
         </div>
-         
     </div>   
 </div>

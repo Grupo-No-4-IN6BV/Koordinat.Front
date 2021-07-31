@@ -1,6 +1,7 @@
 
 *{
   text-decoration: none;
+
 }
 
 a{
@@ -16,6 +17,8 @@ a{
 
 #Nav{
   background-color: rgb(255, 255, 255);
+  position: fixed;
+  z-index: 2;
 }
 
 #col2{

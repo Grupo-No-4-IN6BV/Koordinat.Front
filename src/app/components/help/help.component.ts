@@ -42,6 +42,9 @@ export class HelpInfoComponent implements OnInit {
 
 }
 
+
+import { questions } from './data';
+
 @Component({
   selector: 'app-help-seller',
   templateUrl: './help.seller.component.html',
@@ -49,9 +52,26 @@ export class HelpInfoComponent implements OnInit {
 })
 export class HelpSellerComponent implements OnInit {
 
-  constructor() { }
+  questions: any[];
+  searchHelpSeller;
+  inp = true;
+
+/*Hola Josue Noj, soy yo de nuevo*/ 
+  constructor() {
+    Object.assign(this, { questions });
+   }
 
   ngOnInit(): void {
+    console.log(this.questions)
+  }
+
+  ngDoCheck(){
+    
+    if(this.searchHelpSeller=='' || this.searchHelpSeller==undefined || this.searchHelpSeller==null){
+      this.inp=true;
+    }else{
+      this.inp=false;
+    }
   }
 
 }

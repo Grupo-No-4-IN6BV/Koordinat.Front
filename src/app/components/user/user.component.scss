@@ -1,0 +1,30 @@
+.container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgUser{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+}
+
+mat-card{
+    width: 85%;
+}
+
+.tit{
+    font-size: smaller;
+}
+.list{
+    font-size: small;
+    margin-left: 25px;
+    margin-top: -15px;
+}
+
+#map{
+    width: 230px;
+    height: 230px;
+}

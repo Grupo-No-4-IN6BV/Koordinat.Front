@@ -1,1 +1,40 @@
-<p>user works!</p>
+
+<div class="container">
+    <mat-card> 
+        <mat-card-title style="margin-top: 30px; margin-left: 2vw"> Perfil </mat-card-title>
+        <p style="margin-bottom: 20px; margin-left: 2vw; font-size: 11px;">Perfil personal</p>
+        <div class="row">
+            <div class="col-lg-4" >
+            <h4 style="margin-left: 2vw">Foto de perfil</h4>  
+            <div class="container" style="height: 85%;">
+            <img src="../../../assets/img/userE.svg" class="imgUser">  
+        </div>   
+            </div>
+            <div class="col-lg-4">
+                <h4>Tus datos personales</h4> 
+                <p class="tit">Nombres</p>
+                <p class="list"> {{user.name}} </p>
+                <p class="tit">Apellidos</p>
+                <p class="list"> {{user.lastname}} </p>
+                <p class="tit">Correo Electrónico</p>
+                <p class="list"> {{user.email}} </p>
+                <p class="tit">Número Telefonico</p>
+                <p class="list"> +502 {{user.phone}} </p>
+                <p class="tit">Fecha de nacimiento</p>
+                <p class="list"> {{user.dateage}} </p>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <h4>Domicilio</h4>  
+                <div class="container" style="height: 75%;">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: end; margin-bottom: 30px;">
+            <button mat-raised-button color="accent" style="margin-right: 15px;">Editar Cuenta</button>
+            <button mat-raised-button color="warn" style="margin-right: 2vw;">Eliminar Cuenta</button>
+        </div>
+        
+    </mat-card>
+</div>
+

@@ -1,0 +1,133 @@
+.field {
+    display:flex;
+    position: fixed;
+    height: 40px;
+    border-radius: 5px 0px 5px 10px;
+    z-index: 2;
+  }
+  
+  .field>input[type=text],
+  .field>button {
+    display:block;
+    font:1.2em 'Montserrat Alternates';
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    width: 10%;
+    
+  }
+  
+  .field>input[type=text] {
+    flex:1;
+    padding:0.6em;
+    border:0.2em solid black;
+    border-radius: 5px 0px 0px 5px;
+    
+  }
+  
+  .field>button {
+    padding:0.6em 0.8em;
+    background-color:black;
+    color:white;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+  }
+       
+  #searchterm{
+    width: 75vw;
+  }  
+/*
+  .example-card {
+    max-width: 300px;
+  }*/
+
+  .logo{
+    width: 225px;
+    height: 225px;
+  }
+  .imgpromo{
+    width: 100px;
+    height: 100px;
+  }
+
+  //CSS DE LA CARD QUE SI SIRVE
+
+
+
+  #bodyCard{
+    max-width: 350px;
+    max-height: 400px;
+    min-width: 350px;
+    min-height: 400px;
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin-block: 20px;
+    float: left;
+    margin-right: 80px;
+  }
+
+  #headerCard{
+    font-size: 15px;
+    margin-top: 10px;
+    font-family: Gill Sans, sans-serif;;  
+    font-weight: bold;
+  }
+
+  #imgCard{
+    margin-top: 30px;
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+  }
+
+  #descCard{
+    text-align: justify;
+    font-family: Gill Sans, sans-serif;;
+    font-size: 15px;
+    padding: 10px;
+    min-width: 330px;
+    min-height: 100px;
+    max-width: 330px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  #catCard{
+    bottom: 0;
+    font-family: URW Chancery L, cursive;
+    font-size: 15px;
+  }
+/*
+  #catCardTitle{
+    font-weight: bold;
+    bottom: 0;
+    font-family: Gill Sans, sans-serif;;
+    font-size: 15px;
+    padding: 20px;
+  }*/
+
+  #allCard{
+    margin-block: 50px;
+    width: 70%;
+  }
+
+  #diosssssss{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin-block: 50px;
+  }
+
+  #si{
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+  }

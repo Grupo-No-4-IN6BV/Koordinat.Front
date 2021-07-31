@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,13 +22,18 @@ import { PopperDirective } from './directives/popper.directive';
 import { BUCKET } from '@angular/fire/storage';
 import { UsersComponent } from './components/users/users.component';
 import { BusinessesComponent } from './components/businesses/businesses.component';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryComponent, CategorySaveComponent } from './components/category/category.component';
 
-import { ProductComponent } from './components/product/product.component';
-import { WhiteListComponent } from './components/white-list/white-list.component';
+import { ProductComponent, ProductSaveComponent } from './components/product/product.component';
+import { ProductViewComponent, WhiteListComponent } from './components/white-list/white-list.component';
 import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
 import { OfferComponent } from './components/offer/offer.component';
-import { CatalogueComponent } from './components/catalogue/catalogue.component';
+import { CatalogueComponent, CatalogueSidebarComponent } from './components/catalogue/catalogue.component';
+import { SearchHelpSellerPipe } from './pipe/search/search-help-seller.pipe';
+import * as Hammer from 'hammerjs';
+import { CatalogueListComponent } from './components/catalogue-list/catalogue-list.component';
+import { SearchPipe } from './pipe/category/search.pipe';
+import { SearchNamePipe } from './pipe/category/search-name.pipe';
 
 
 
@@ -62,13 +67,27 @@ import { CatalogueComponent } from './components/catalogue/catalogue.component';
 
     //Business
     BusinessesComponent,
-    CategoryComponent,
-    ProductComponent,
+    
     WhiteListComponent,
     ShoopingCarComponent,
     OfferComponent,
     CatalogueComponent,
 
+
+    //Categorias
+    CategoryComponent,
+    CategorySaveComponent,
+    CatalogueSidebarComponent,
+
+
+    //Productos
+    ProductComponent,
+    ProductSaveComponent,
+    SearchHelpSellerPipe,
+    CatalogueListComponent,
+    SearchPipe,
+    SearchNamePipe,
+    ProductViewComponent,
   ],
 
   imports: [
@@ -79,9 +98,11 @@ import { CatalogueComponent } from './components/catalogue/catalogue.component';
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
+    HammerModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
+  
   providers: [
     {provide: BUCKET, useValue: 'gs://koordinatg4.appspot.com/'}],
   bootstrap: [AppComponent],
@@ -89,4 +110,6 @@ import { CatalogueComponent } from './components/catalogue/catalogue.component';
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
+
+
 export class AppModule { }

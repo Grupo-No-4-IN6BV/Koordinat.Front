@@ -1,1 +1,46 @@
-<p>white-list works!</p>
+<br><br><br>
+
+<div class="container">
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">fact_check</span>Lista de Deseos</button>
+</div>
+
+<div class="container0">
+    <div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
+        <div class="col-lg-3" style=" line-height: 40px;">
+            <p>Imagen</p>
+        </div>
+        <div class="col-lg-5" style=" line-height: 40px;">
+            <p>Nombre</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Precio</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Acciones</p>
+        </div> 
+    </div>
+</div>
+<div class="container0" *ngFor="let product of whitelist;  let i = index ">
+    <div class="row" id="table" style="text-align: center; ">
+        <div class="col-lg-3" style="line-height: 40px;">
+            <img src="{{product['img1']}}" alt="Sin imagenes" style=" width: 35px; height: 35px;">
+        </div>
+        <div class="col-lg-5" style=" line-height: 40px;">
+            <p>{{product['name']}}</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px; ">
+            <p>Q.{{product['price']}}.00</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <button mat-icon-button  style="color: black" type="button"  (click)="openProduct(product)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button  color="warn" type="button" (click)="deleteWL(product)"><mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+</div>
+<div class="feat1">
+    <div class="row" id="feat" style="text-align: center;  border-radius: 0px 0px 5px 5px; ">
+        <div class="col-lg-3" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+        <div class="col-lg-7" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+        <div class="col-lg-2" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+    </div>
+</div>

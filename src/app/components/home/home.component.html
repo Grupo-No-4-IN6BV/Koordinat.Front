@@ -1,34 +1,107 @@
-<div class="container" *ngIf="vrf==1 && vrf!=null">
-    <button mat-stroked-button class="admin"><span class="material-icons">people</span><br>Usuarios</button>
-    <button mat-stroked-button class="admin"><span class="material-icons">business</span><br>Empresas</button>
-    <button mat-stroked-button class="admin"><span class="material-icons">category</span><br>Categorias</button>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+</head>
+
+<br><br><br><br>
+
+<div id="allHome" style="align-content: center;">
+	<div class="wrapper">
+		<input type="radio" name="image-slide" checked="checked">
+		<picture>
+			<a href="/ayuda"><img class="logoKekw" src="https://firebasestorage.googleapis.com/v0/b/koordinatg4.appspot.com/o/images%2FPicsArt_07-31-03.40.52.png?alt=media&token=abe9907d-4bd0-415d-ab2f-5dc24d69bfb0" alt="Random Picture 1"></a>
+		</picture>
+		
+		<input type="radio" name="image-slide">
+		<picture>
+			<a href="/ayuda"><img class="logoKekw" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0355d1fc-2219-45c9-be48-d145c43f03b7/deoaoss-715ee79f-7589-4fea-b938-4146d4080bb1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAzNTVkMWZjLTIyMTktNDVjOS1iZTQ4LWQxNDVjNDNmMDNiN1wvZGVvYW9zcy03MTVlZTc5Zi03NTg5LTRmZWEtYjkzOC00MTQ2ZDQwODBiYjEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.LUHHIHv4OQvHBu0qJCIZ-gm_ZGmVKUZKmHKv61AeNUk" alt=""></a>
+		</picture>
+
+		<input type="radio" name="image-slide">
+		<picture>
+			<a href="/ayuda"><img class="logoKekw" src="https://firebasestorage.googleapis.com/v0/b/koordinatg4.appspot.com/o/images%2Fimg%20(1).png?alt=media&token=63ff9939-a966-40ac-9dbc-e420ab9b0bf7" alt=""></a>
+		</picture>
+		
+		<input type="radio" name="image-slide">
+		<picture>
+			<a href="/ayuda"><img class="logoKekw" src="https://firebasestorage.googleapis.com/v0/b/koordinatg4.appspot.com/o/images%2Fimg%20(4).png?alt=media&token=e4eaf35d-47a9-4216-a81a-f02032eb3996" alt=""></a>
+		</picture>
+
+		<input type="radio" name="image-slide">
+		<picture>
+			<a href="/ayuda"><img class="logoKekw" src="https://firebasestorage.googleapis.com/v0/b/koordinatg4.appspot.com/o/images%2Fimg%20(8).png?alt=media&token=ddab0b2a-05e5-41bd-acbe-7f5993832239" alt=""></a>
+		</picture>
+	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Dejar comentado -->
-<!-- 
-<a class="button">Default</a>
+<br>
+<br>
+<br><!--
+<div class="letter">
+    <div id="files">
+        <div class="hTitle">TÉRMINOS Y CONDICIONES</div> 
+        <div class="body">
+            <p>         
+                YA ES TARDE PARA REGRESAR ZORRA >:)
+            <br>
+        </div>  
+    </div>   
+</div>
+<br>
+<div class="letter">
+    <div id="files">
+        <div class="hTitle">TÉRMINOS Y CONDICIONES</div> 
+        <div class="body">
+            <p>         
+                YA ES TARDE PARA REGRESAR ZORRA >:)
+            <br>
+        </div>  
+    </div>   
+</div>
+<br>
+<div class="letter">
+    <div id="files">
+        <div class="hTitle">TÉRMINOS Y CONDICIONES</div> 
+        <div class="body">
+            <p>         
+                YA ES TARDE PARA REGRESAR ZORRA >:)
+            <br>
+        </div>  
+    </div>   
+</div>
 -->
+<br>
+
+
+  <div class="container" >
+	<div class="card" *ngFor="let product of products;">
+	  <h3 class="title">⭐ {{product['name']}}</h3>
+	  <div class="bar">
+		<img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">
+	  </div>
+	  <div class="content">
+		<p>Q.{{product['price']}}.00</p>
+		<ng-container *ngFor="let category of categories"  >
+			<p *ngIf="product['category'] == category['_id']">{{category['name']}}</p>
+		</ng-container>
+
+	  </div>
+	</div>
+  </div>
+
+<br>
+
+
+	<div class="container2" >
+	  <div class="card" *ngFor="let product of products;">
+		<h3 class="title">⏱ {{product['name']}}</h3>
+		<div class="bar">
+		  <img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">
+		</div>
+		<div class="content">
+		  <p>Q.{{product['price']}}.00</p>
+		  <ng-container *ngFor="let category of categories"  >
+			  <p *ngIf="product['category'] == category['_id']">{{category['name']}}</p>
+		  </ng-container>
+		</div>
+	  </div>
+	</div>
+

@@ -1,15 +1,358 @@
-.container{
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.admin{
-    color: white;
-    border-color: white;
-    padding: 15px;
-    width: 200px;
-    margin: 25px;
+
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 2.2;
 }
 
+button {
+	border: none;
+	border-radius: 5px;
+	padding: .5rem 1rem;
+	background-color: dodgerblue;
+	color: white;
+	margin: 1rem 0;
+	font-size: 1rem;
+}
+
+.wrapper {
+	position: relative;
+	width: 200px;
+	height: 250px;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	padding: 1rem;
+
+}
+
+input {
+	appearance: none;
+	z-index: 1;
+	margin-right: 1rem;
+	width: 1rem;
+	height: 1rem;
+	background: #336063;
+	border-radius: 50%;
+	cursor: pointer;
+	top: 30px;
+}
+
+input:last-of-type {
+	margin: 0;
+}
+
+input:focus {
+	outline: none;
+}
+
+input:checked {
+	background: #fecd08;
+}
+
+input + * {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateX(100%);
+	transition: transform ease-in-out 400ms;
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: transparent;
+}
+
+input + *[aria-label]:before {
+	content: attr(aria-label);
+	display: block;
+	position: absolute;
+	top: 1.5rem;
+	left: 1.5rem;
+	font-size: 1.5rem;
+	color: white;
+	z-index: -1;
+	padding: .5rem;
+	background-color: rgba(0,0,0,0.5);
+}
+
+section {
+	padding: 1rem;
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+}
+
+input:checked + * {
+	transform: translateX(0);
+	z-index: -1;
+}
+
+/* 
+	just to be safe we hide every element that comes after
+	each slide and that's not an input of type radio
+*/
+input + * + *:not(input[type=radio]) {
+	display: none;
+}
+
+/* ARROWS */
+
+input:before {
+	display: none !important;
+	content: '';
+
+	top: 50%;
+	left: 1rem;
+	width: 2rem;
+	height: 2rem;
+	background: orange;
+	border-radius: 50%;
+}
+
+input:after {
+	display: none !important;
+	content: '';
+	position: absolute;
+	top: calc(50% + 1rem);
+	left: 2rem;
+	width: .5rem;
+	height: .5rem;
+	border-bottom: 1px solid #262626;
+	border-left: 1px solid #262626;
+	transform: translate(-25%, -50%) rotate(45deg);
+}
+
+input:checked:before, input:checked:after {
+	display: none;
+}
+
+input:checked + * + input:before {
+	left: calc(100% - 3rem);
+}
+
+input:checked + * + input:after {
+	left: calc(100% - 2rem);
+	transform: translate(-75%, -50%) rotate(-135deg);
+}
+
+input:checked + * + input + * ~ input:before,
+input:checked + * + input + * ~ input:after,{
+	display: none;
+}
+
+input:last-of-type:before {
+	background: green;
+}
+
+//IMG
+.logoKekw{
+	width: 200px;
+	height: 200px;
+}
+
+
+#allHome{
+	align-content: center;
+    text-align: center;
+	justify-content: center;
+	text-align: center;
+	display: inline-block;
+	display: flex;
+}
+
+/*
+//CSS GENERAL
+
+body {
+    background: linear-gradient(#ccc, #fff);
+    font: 14px sans-serif;
+    padding: 20px;
+  }
+  .letter {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 26px auto 0;
+    max-width: 800px;
+    min-height: 100px;
+    padding: 10px;
+    position: relative;
+    width: 80%;
+  }
+  .letter:before, .letter:after {
+    content: "";
+    height: 98%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  .letter:before {
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    left: -5px;
+    top: 4px;
+    transform: rotate(-0.8deg);
+  }
+  .letter:after {
+    background: #f6f6f6;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    right: -3px;
+    top: 1px;
+    transform: rotate(0.8deg);
+  }
+
+  .hTitle{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 10px;
+    font-family: Gill Sans, sans-serif; 
+  }
+
+  .body{
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-family: Gill Sans, sans-serif; 
+  }
+*/
+
+  //CSS CARDS (PROFE ME ESTOY DEJANDO LA SALUD MENTAL EN ESTO, MERECEMOS 200 PTS EXTRS
+
+
+  
+  .container {
+	position: absolute;
+	width: 1100px;
+	top: 350px;
+	left: calc(50% - 590px);
+	display: flex;
+  }
+
+  .container2 {
+	position: absolute;
+	width: 1100px;
+	top: 750px;
+	left: calc(50% - 575px);
+	display: flex;
+	margin-bottom: 50px;
+	padding-bottom: 50px
+  }
+  
+  .card {
+	display: flex;
+	height: 320px;
+	min-width: 180px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: -1rem 0 3rem black;
+  	/*margin-left: -50px;*/
+	transition: 0.4s ease-out;
+	position: relative;
+	left: 0px;
+	padding: 10px;
+  }
+  
+  //tamaño de las cartas (cuando hay muchas)
+  .card:not(:first-child) {
+	  margin-left: -40px;
+  }
+  
+  .card:hover {
+	transform: translateY(-20px);
+	transition: 0.4s ease-out;
+  }
+  
+  .card:hover ~ .card {
+	position: relative;
+	left: 50px;
+	transition: 0.4s ease-out;
+  }
+  
+  .title {
+	color: black;
+	position: absolute;
+	left: 20px;
+	top: 15px;
+	font-family: Gill Sans, sans-serif;
+	font-weight: bold;
+  }
+  /*
+  .bar {
+	position: absolute;
+	top: 100px;
+	height: 5px;
+	width: 160px;
+  }*/
+  /*
+  .emptybar {
+	background-color: #2e3033;
+	width: 100%;
+
+  }
+  
+  .filledbar {
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	width: 0px;
+	height: 100%;
+	background: rgb(0,154,217);
+	background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+	transition: 0.6s ease-out;
+  }*/
+  /*
+  .card:hover .filledbar {
+	width: 120px;
+	transition: 0.4s ease-out;
+  }
+  
+  .circle {
+	position: absolute;
+	top: 150px;
+	left: calc(50% - 60px);
+  }
+  */
+  .stroke {
+	stroke: black;
+	stroke-dasharray: 360;
+	stroke-dashoffset: 380;
+	transition: 0.6s ease-out;
+  }
+  
+  svg {
+	fill: white;
+	stroke-width: 2px;
+  }
+  
+  .card:hover .stroke {
+	stroke-dashoffset: 100;
+	transition: 0.6s ease-out;
+  }
+
+  #cardImgKEKW{
+	max-height: 150px;
+	max-width: 150px;
+	padding: 10px;
+	margin-top: 70px;
+	min-height: 160px;
+	min-width: 160px;
+	border-radius: 50%;
+	border: 5px;
+  }
+
+  .content{
+	bottom: 0;
+	position: absolute;
+	margin-left: 10px;
+	font-family: URW Chancery L, cursive;
+  }
