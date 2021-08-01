@@ -24,9 +24,15 @@ export class CatalogueListComponent implements OnInit {
     private restUser: RestUserService, public snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+ 
     this.user = this.restUser.getUser();
-    if(this.user.role == 'ROLE_USER'){
+    if(this.user == null || undefined ){
+      this.auth = 'onlyView';
+
+      
+    }else if(this.user.role == 'ROLE_USER'){
       this.auth = 'userView';
+      
     }
     this.restProduct.getProducts().subscribe((res:any)=>{
       if(res.productsFind){

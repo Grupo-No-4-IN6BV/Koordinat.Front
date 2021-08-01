@@ -89,7 +89,8 @@ export interface DialogData {
 
 @Component({
   selector: 'app-product-delete',
-  templateUrl: 'product.delete.component.html'
+  templateUrl: 'product.delete.component.html',
+  styleUrls: ['./product.component.scss']
 })
 
 export class ProductDeleteComponent implements OnInit {

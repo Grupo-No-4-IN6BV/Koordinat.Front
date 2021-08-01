@@ -1,4 +1,4 @@
-<div style="width: 80%; margin-left: 220px;">
+<div style="width: 80%; margin-left: 300px;">
     <div class="field" id="searchform">
         <input  [(ngModel)]="searchName" type="text" id="searchterm" placeholder="¿Necesitas ayuda?" type="search" name="search">
         <button type="button" id="search">Buscar</button>
@@ -26,8 +26,8 @@
             </mat-card-actions>
           </mat-card>
 -->
-<div id="si">
-  <div id="diosssssss">
+
+  <div  id="diosssssss">
     <div id="allCard" *ngFor="let product of products |  search: categoryS | searchName: searchName">
       <div id="bodyCard">
         <div id="headerCard">{{product['name']}}</div>
@@ -37,11 +37,16 @@
           <p id="catCard" *ngIf="product['category'] == category['_id']">Categoria: {{category['name']}}</p>
         </ng-container>
         <mat-card-actions style="text-align: end;">
-          <button mat-icon-button (click)="openProduct(product)"><mat-icon>open_in_new</mat-icon></button>
-          <button mat-icon-button (click)="wishSet(product)"><mat-icon>fact_check</mat-icon></button>
-          <button mat-icon-button><mat-icon>shopping_cart</mat-icon></button>
+
+
+          
+
+          <button mat-icon-button (click)="openProduct(product)" ><mat-icon>open_in_new</mat-icon></button>
+          <button mat-icon-button (click)="wishSet(product)" *ngIf="auth == 'userView'" ><mat-icon>fact_check</mat-icon></button>
+          <button mat-icon-button *ngIf="auth == 'userView'"><mat-icon>shopping_cart</mat-icon></button>
+          <button mat-icon-button disabled *ngIf="auth == 'onlyView'"><mat-icon>fact_check</mat-icon></button>
+          <button mat-icon-button disabled *ngIf="auth == 'onlyView'"><mat-icon>shopping_cart</mat-icon></button>
         </mat-card-actions>
       </div>
     </div>
   </div>
-</div>

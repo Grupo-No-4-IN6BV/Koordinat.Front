@@ -1,1 +1,124 @@
-<p>shooping-car works!</p>
+<br><br><br>
+
+
+<!--
+<div class="container0">
+    <div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
+        <div class="col-lg-3" style=" line-height: 40px;">
+            <p>Nombre</p>
+        </div>
+        <div class="col-lg-5" style=" line-height: 40px;">
+            <p>Cantidad</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Subtotal</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <p>Acciones</p>
+        </div> 
+    </div>
+</div>
+<div class="container0" *ngFor="let product of car;">
+    <div class="row" id="table" style="text-align: center; ">
+        <div class="col-lg-3" style="line-height: 40px;">
+            <p>{{product['producto']}}</p>
+        </div>
+        <div class="col-lg-5" style=" line-height: 40px;">
+            <p>{{product['cantidad']}}</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px; ">
+            <p>Q.{{product['subtotal']}}.00</p>
+        </div>
+        <div class="col-lg-2" style=" line-height: 40px;">
+            <button mat-icon-button  style="color: black" type="button" ><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button  color="warn" type="button" ><mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+</div>
+<div class="feat1">
+    <div class="row" id="feat" style="text-align: center;  border-radius: 0px 0px 5px 5px; ">
+        <div class="col-lg-3" style="width: 33.33%; line-height: 5px; height: 100px;">
+        <p>total: {{total}}</p></div>
+        <div class="col-lg-7" style="width: 33.33%; line-height: 25px; height: 100px;"></div>
+        <div class="col-lg-2" style="width: 33.33%; line-height: 25px; height: 100px;">
+            <p>Total: Q.{{total}}.00</p></div>
+    </div>
+</div>
+
+
+UVYOYVGOIUGIYUGOIG
+
+-->
+
+<div id="delocos"  class="row">
+<div  class="col-lg-6" > 
+    <div class="containerTbl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of car">
+                    <td>{{product['producto']}}</td>
+                    <td>{{product['cantidad']}}</td>
+                    <td>{{product['subtotal']}}</td>
+                    <td>
+                        <button mat-icon-button  style="color: black" type="button" ><mat-icon>launch</mat-icon></button>
+                        <button mat-icon-button  color="warn" type="button" ><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <!--FLIPASSSSSSSSSSSSSSSSSS-->
+<div id="obj2" class="col-lg-6" > 
+    <div class="flip-card-container" style="--hue: 220">
+            <div class="flip-card">
+        
+            <div class="card-front">
+                <figure>
+                <div class="img-bg"></div>
+                <img src="https://fondosmil.com/fondo/17538.jpg" alt="Brohm Lake">
+                </figure>
+        
+                <ul>
+                <li> MONTO TOTAL</li>
+                <li> Q. {{total}} .00</li>
+                </ul>
+            </div>
+        
+            <div class="card-back">
+                <figure>
+                <div class="img-bg"></div>
+                <img src="https://fondosmil.com/fondo/17538.jpg" alt="Brohm Lake">
+                </figure>
+        
+                <button>SEGUIR NAVEGANDO</button>
+                <button>COMPRAR</button>
+        <!--
+                <div class="design-container">
+                <span class="design design--1"></span>
+                <span class="design design--2"></span>
+                <span class="design design--3"></span>
+                <span class="design design--4"></span>
+                <span class="design design--5"></span>
+                <span class="design design--6"></span>
+                <span class="design design--7"></span>
+                <span class="design design--8"></span>
+                </div>
+            </div>
+        -->
+            </div>
+        </div>
+        <!-- /flip-card-container -->
+    </div>
+</div>
+</div>

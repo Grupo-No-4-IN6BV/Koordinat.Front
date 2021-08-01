@@ -24,8 +24,8 @@ import { UsersComponent } from './components/users/users.component';
 import { BusinessesComponent } from './components/businesses/businesses.component';
 import { CategoryComponent, CategorySaveComponent } from './components/category/category.component';
 
-import { ProductComponent, ProductSaveComponent } from './components/product/product.component';
-import { ProductViewComponent, WhiteListComponent } from './components/white-list/white-list.component';
+import { ProductComponent, ProductDeleteComponent, ProductSaveComponent } from './components/product/product.component';
+import { ProductViewComponent, WhiteListComponent, WhiteListDeleteComponent } from './components/white-list/white-list.component';
 import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
 import { OfferComponent } from './components/offer/offer.component';
 import { CatalogueComponent, CatalogueSidebarComponent } from './components/catalogue/catalogue.component';
@@ -88,6 +88,8 @@ import { SearchNamePipe } from './pipe/category/search-name.pipe';
     SearchPipe,
     SearchNamePipe,
     ProductViewComponent,
+    WhiteListDeleteComponent,
+    ProductDeleteComponent,
   ],
 
   imports: [

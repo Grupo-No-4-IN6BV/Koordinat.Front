@@ -20,8 +20,11 @@ export class WhiteListComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.restUser.getUser();
-    if(this.user.role == 'ROLE_USER'){
+    if(this.user == null || undefined ){
+      this.auth = 'onlyView';
+    }else if(this.user.role == 'ROLE_USER'){
       this.auth = 'userView';
+      
     }
     this.whitelist = this.user.wishList;
   }
@@ -29,8 +32,8 @@ export class WhiteListComponent implements OnInit {
 
   deleteWL(product): void {
     const dialogRef = this.dialog.open(WhiteListDeleteComponent, {
-      height: '435px',
-      width: '400px',
+      height: '280px',
+      width: '250px',
       data: {id: product._id, name: product.name}
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -60,21 +63,41 @@ export class WhiteListComponent implements OnInit {
 
 export class ProductViewComponent implements OnInit {
   product;
-
+  user;
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   constructor(public dialogRef: MatDialogRef<ProductViewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private restProduct: RestProductService) { 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private restProduct: RestProductService,
+    private restUser: RestUserService, public snackBar: MatSnackBar) { 
       this.product = new Product('','',0,0,0,'','','','','','')
     }
 
   ngOnInit() { 
+    this.user = this.restUser.getUser();
     
     this.restProduct.getProduct(this.data.id).subscribe((res:any)=>{
       if(res.product){
         this.product = res.product;
+      }else{
+        alert(res.message)
+      }
+    })
+  }
+
+  carshop(){
+    this.restUser.shopping(this.user._id, this.product).subscribe((res:any)=>{
+      if(res.userPush){
+        delete res.userPush.password;
+        this.user = res.userPush;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.snackBar.open('Agregado al Carrito', 'Cerrar', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-accent']
+        });
       }else{
         alert(res.message)
       }
@@ -91,7 +114,8 @@ export interface DialogData {
 
 @Component({
   selector: 'app-white-list-delete',
-  templateUrl: 'white-list.delete.component.html'
+  templateUrl: 'white-list.delete.component.html',
+  styleUrls: ['./white-list.component.scss']
 })
 
 export class WhiteListDeleteComponent implements OnInit {

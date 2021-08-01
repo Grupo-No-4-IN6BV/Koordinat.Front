@@ -1,17 +1,13 @@
-
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
 
 <br><br><br>
  
 <mat-drawer-container class="example-container" style="background:transparent;">
-  <mat-drawer mode="side" opened style="background:transparent;">
-      <div class="sidebar" *ngIf="categoryS != null">
-        <mat-selection-list [ngModel]="categoryS" [multiple]="false">
-          <mat-list-option *ngFor="let category of categories " (click)="select(category)">
-            <img src="{{category['image']}}" style="width: 30px;"><p>{{category['name']}}</p>
-          </mat-list-option>
-        </mat-selection-list>
-      </div>
-</mat-drawer>
+
+
+
+
+
 
 
 
@@ -56,6 +52,14 @@
     </div>
 -->
 
+  <div class="container" *ngIf="categoryS != null" >
+    <div class="card" *ngFor="let category of categories" (click)="select(category)" >
+    <h3 class="title">{{category['name']}}</h3>
+    </div>
+  </div>
+
+
+
 
 <div id="btnCat">
   <div class="row" *ngIf="categoryS == null">
@@ -68,13 +72,11 @@
     </div>
   </div>
 </div>
-
-
     <ng-container *ngIf="categoryS != null" >
       <app-catalogue-list [categoryS]="categoryS"></app-catalogue-list>
     </ng-container>
-    
-  
   </mat-drawer-content>
+
+
 
 

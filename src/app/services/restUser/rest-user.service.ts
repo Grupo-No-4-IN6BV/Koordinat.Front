@@ -48,6 +48,7 @@ wishSet(idUser, idProduct){
     'Content-Type': 'application/json',
     'Authorization': this.getToken()
   })
+  
   return this.http.put(this.uri+idUser+'/'+idProduct+'/wishSet/', {headers: headers})
   .pipe(map(this.extractData))
 }
@@ -58,6 +59,16 @@ removeWish(idUser, idProduct){
     'Authorization': this.getToken()
   })
   return this.http.put(this.uri+idUser+'/'+idProduct+'/removeWish', {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+shopping(idUser, product){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  let params = JSON.stringify(product);
+  return this.http.post(this.uri+'shopping/'+idUser, params, {headers: headers})
   .pipe(map(this.extractData))
 }
 

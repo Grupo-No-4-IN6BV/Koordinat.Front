@@ -71,21 +71,21 @@
 <br>
 
 
-  <div class="container" >
-	<div class="card" *ngFor="let product of products;">
-	  <h3 class="title">⭐ {{product['name']}}</h3>
-	  <div class="bar">
-		<img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">
-	  </div>
-	  <div class="content">
-		<p>Q.{{product['price']}}.00</p>
-		<ng-container *ngFor="let category of categories"  >
-			<p *ngIf="product['category'] == category['_id']">{{category['name']}}</p>
-		</ng-container>
+	<div class="container" >
+		<div class="card" *ngFor="let product of products;">
+		<h3 class="title">⭐ {{product['name']}}</h3>
+		<div class="bar">
+			<img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">
+		</div>
+		<div class="content">
+			<p>Q.{{product['price']}}.00</p>
+			<ng-container *ngFor="let category of categories"  >
+				<p *ngIf="product['category'] == category['_id']">{{category['name']}}</p>
+			</ng-container>
 
-	  </div>
+		</div>
+		</div>
 	</div>
-  </div>
 
 <br>
 
