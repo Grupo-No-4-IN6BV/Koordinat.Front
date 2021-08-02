@@ -9,6 +9,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { HelpClientComponent, HelpComponent, HelpInfoComponent, HelpSellerComponent, HelpTermsacodesComponent } from './components/help/help.component';
 import { HomeComponent } from './components/home/home.component';
 import { OfferComponent } from './components/offer/offer.component';
+import { OrderComponent } from './components/order/order.component';
 import { ProductComponent } from './components/product/product.component';
 import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'empresas', component: BusinessesComponent},
   {path: 'categorias', component: CategoryComponent},
   {path: 'productos', component: ProductComponent},
+  {path: 'pedidos', component: OrderComponent},
 
   // << Auth >> 
   {path: 'login', component: LoginComponent}  ,

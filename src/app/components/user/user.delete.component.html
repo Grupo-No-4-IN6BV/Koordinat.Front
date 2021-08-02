@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-10">
+        <h1 style="color: red;">Eliminar Cuenta</h1>
+        <h2>¿Esta seguro que desea eliminar permanetemente su cuenta?</h2>
+        <h3>Escriba su contraseña para continuar</h3>
+    </div>
+    <div class="col-lg-2" >
+        <img style="width: 100px;" src="https://cdn.betterttv.net/emote/5de7a4f6e7df1277b606d47d/3x" alt="">
+    </div>
+
+</div>
+<form #formRemoved="ngForm">
+    <mat-form-field  class="example-form-field" style="margin-left: 20px; width: 90%;">
+        <input matInput type="text" [(ngModel)]="possiblePass" type="password" id="passwordRemoved" name="passwordRemoved" autocomplete="off">
+      </mat-form-field>
+</form>
+<div style="text-align: end; margin-top: 15px; margin-right: 15px;">
+    <button style="margin-left: 10px;" mat-stroked-button color="warn" type="button" [disabled]="!formRemoved.form.valid" (click)="deleteAccount()">Confirmar</button>
+
+</div>

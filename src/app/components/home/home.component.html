@@ -72,7 +72,7 @@
 
 
 	<div class="container" >
-		<div class="card" *ngFor="let product of products;">
+		<div class="card" *ngFor="let product of products;" (click)=" openProduct(product)">
 		<h3 class="title">⭐ {{product['name']}}</h3>
 		<div class="bar">
 			<img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">
@@ -82,7 +82,6 @@
 			<ng-container *ngFor="let category of categories"  >
 				<p *ngIf="product['category'] == category['_id']">{{category['name']}}</p>
 			</ng-container>
-
 		</div>
 		</div>
 	</div>
@@ -91,7 +90,7 @@
 
 
 	<div class="container2" >
-	  <div class="card" *ngFor="let product of products;">
+	  <div class="card" *ngFor="let product of products;" (click)=" openProduct(product)">
 		<h3 class="title">⏱ {{product['name']}}</h3>
 		<div class="bar">
 		  <img id="cardImgKEKW" src="{{product['img1']}}" style="border-radius: 10px;">

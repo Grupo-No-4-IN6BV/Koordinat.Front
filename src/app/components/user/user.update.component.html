@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-lg-10">
+        <h1 style="color: red;">Editar cuenta</h1>
+    </div>
+</div>
+<div>
+    <form #formUpdate="ngForm">
+      <div class="row">
+        <div class="col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombres</mat-label>
+                <input matInput [(ngModel)]="user.name" name="name" #names="ngModel" autocomplete="off" required>
+              </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Apellidos</mat-label>
+                <input matInput [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" autocomplete="off" type="text" required>
+              </mat-form-field>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="col-lg-6">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <span matPrefix>+502 &nbsp;</span>
+            <input type="number" matInput placeholder="2225-1234" autocomplete="off" [(ngModel)]="user.phone" name="phone" min="11111111" required max="99999999">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Fecha de Nacimineto</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateage" name="dataage" required>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>  
+    </form>
+</div>
+
+<div style="text-align: end; margin-top: 15px; margin-right: 15px;">
+    <button style="margin-left: 10px;" mat-stroked-button color="warn" type="button" (click)="updateAccount()">Actualizar</button>
+</div>

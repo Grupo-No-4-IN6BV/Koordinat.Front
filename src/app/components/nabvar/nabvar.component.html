@@ -8,7 +8,6 @@
 
     <div class="col-lg-4" id="" style="display: flex; justify-content: center; align-items: center; width: 33.33%;">
       <div id="pog" #target ><button mat-button id="btnNav" routerLink="/"><mat-icon>store</mat-icon></button></div>
-      <div id="pog" #oferts><button mat-button id="btnNav" routerLink="ofertas"><mat-icon>local_offer</mat-icon></button></div>
       <div id="pog" #catgs><button mat-button id="btnNav" routerLink="catalogo"><mat-icon>streetview</mat-icon></button></div>
 
         <div  id="pog" *ngIf="vrf!=null" ><button mat-button disabled id="btnNav" style="color: black;"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
@@ -38,21 +37,40 @@
             Categorias
           </span></div>
 
-        
-      
          <!--Mostrar con Rol Business-->
       <div id="pog" *ngIf="vrf==2 && vrf!=null" #products><button mat-button id="btnNav" routerLink="productos"><mat-icon>inventory_2</mat-icon></button>    <ng-container [appPopper]="products" [target]="product"></ng-container>
         <span  class="popper" #product>
           <span class="popper__arrow"></span>
           Productos
         </span></div>
+        <div id="pog" *ngIf="vrf==2 && vrf!=null" #orders><button mat-button id="btnNav" routerLink="pedidos"><mat-icon>pending_actions</mat-icon></button>    <ng-container [appPopper]="orders" [target]="order"></ng-container>
+          <span  class="popper" #order>
+            <span class="popper__arrow"></span>
+            Pedidos
+          </span></div>
       <!---->
-      <div  id="pog" *ngIf="vrf!=null" ><button mat-button disabled id="btnNav" style="color: black;"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+      <div  id="pog" ><button mat-button disabled id="btnNav" style="color: black;"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
 
       <div id="pog" #infos><button mat-button id="btnNav" routerLink="informacion"><mat-icon>info</mat-icon></button></div>
-      <div id="pog" #helps><button mat-button id="btnNav" routerLink="ayuda"><mat-icon>help</mat-icon></button></div>
 
+      <div id="pog" *ngIf="vrf==0 && vrf!=null" #helpUsers><button mat-button id="btnNav" routerLink="ayuda/usuario"><mat-icon>help</mat-icon></button>  
+        <ng-container [appPopper]="helpUsers" [target]="helpUser"></ng-container>
+        <span  class="popper" #helpUser>
+          <span class="popper__arrow"></span>
+          Ayuda al Usuario
+        </span></div>
 
+        <div id="pog" *ngIf="vrf==2 && vrf!=null" #helpBuss><button mat-button id="btnNav" routerLink="ayuda/vendedor"><mat-icon>help</mat-icon></button>    <ng-container [appPopper]="helpBuss" [target]="helpBus"></ng-container>
+          <span  class="popper" #helpBus>
+            <span class="popper__arrow"></span>
+            Ayuda al vendedor
+          </span></div>
+
+          <div id="pog" *ngIf="vrf==null" #helps><button mat-button id="btnNav" routerLink="ayuda"><mat-icon>help</mat-icon></button>    <ng-container [appPopper]="helps" [target]="help"></ng-container>
+            <span  class="popper" #help>
+              <span class="popper__arrow"></span>
+              Ayuda
+            </span></div>
     </div>
     
 
@@ -90,12 +108,6 @@
     Tienda
   </span>
   <!-- Mensaje Carrito -->
-  <ng-container [appPopper]="oferts" [target]="ofert"></ng-container>
-  <span  class="popper" #ofert>
-    <span class="popper__arrow"></span>
-    Ofertas
-  </span>
-  <!-- Mensaje Carrito -->
   <ng-container [appPopper]="catgs" [target]="catg"></ng-container>
   <span  class="popper" #catg>
     <span class="popper__arrow"></span>
@@ -105,11 +117,5 @@
     <ng-container [appPopper]="infos" [target]="info"></ng-container>
     <span  class="popper" #info>
       <span class="popper__arrow"></span>
-      Ayuda
+      Información
     </span>
-      <!-- Mensaje Carrito -->
-  <ng-container [appPopper]="helps" [target]="help"></ng-container>
-  <span  class="popper" #help>
-    <span class="popper__arrow"></span>
-    Catalogo
-  </span>

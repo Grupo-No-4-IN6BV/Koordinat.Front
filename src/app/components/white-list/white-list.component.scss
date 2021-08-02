@@ -1,9 +1,19 @@
 .container{
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 20vh;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  
+  display: flex;
+  
 }
+
+#titleH1{
+  color: white;
+  font-size: 35px;
+  padding: 25px;
+}
+/*
 .container0{
     height: 40px;
     display: flex;
@@ -50,8 +60,16 @@
     text-align: end;
 }
 
+*/
 
-.mat-form-field {width: 100%;}
+//
+#delocos{
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+
+  display: flex;
+}
 
 
 .inputfile {
@@ -122,10 +140,69 @@
   align-items: center;
   text-align: center;
  }
-
+/*
  //title
 
 
  #tableTitle{
   font-weight: bold;
  }
+*/
+ /*
+#btnContainer{
+  width: 50px;
+}
+
+#btnTable{
+  padding: -30px;
+}*/
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+	font-weight: 100;
+}
+
+.containerTbl {
+
+  //para posicion
+   margin-top: 2vh;
+
+	/*position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -50%);*/
+}
+
+table {
+	width: 750px;
+	/*border-collapse: collapse;
+	overflow: hidden;*/
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.7);
+	color: black;
+}
+
+th {
+	text-align: center;
+}
+
+thead {
+	th {
+		background-color: #ffffff;
+	}
+}
+
+
+

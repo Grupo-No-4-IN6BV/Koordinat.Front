@@ -1,9 +1,10 @@
 <br><br><br>
 
 <div class="container">
-    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">fact_check</span>Lista de Deseos</button>
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">fact_check</span>LISTA DE DESEOS</button>
 </div>
 
+<!--
 <div class="container0">
     <div class="row" id="table" style="text-align: center; border-radius: 5px 5px 0px 0px; ">
         <div class="col-lg-3" style=" line-height: 40px;">
@@ -42,5 +43,35 @@
         <div class="col-lg-3" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
         <div class="col-lg-7" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
         <div class="col-lg-2" style="width: 33.33%; line-height: 5px; height: 5px;"></div>
+    </div>
+</div>-->
+
+<div id="delocos">
+    <div id="delocos" >
+        <div id="obj1"> 
+            <div class="containerTbl">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of whitelist">
+                            <td><img id="tblImg" src="{{product['img1']}}" style="width: 75px; height: 75px;"></td>
+                            <td>{{product['name']}}</td>
+                            <td>Q.{{product['price']}}.00</td>
+                            <td id="btnContainer">
+                                <button mat-icon-button  style="color: black" type="button"  (click)="openProduct(product)"><mat-icon>launch</mat-icon></button>
+                                <button mat-icon-button  color="warn" type="button" (click)="deleteWL(product)"><mat-icon>delete</mat-icon></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

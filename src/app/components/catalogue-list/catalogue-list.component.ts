@@ -51,22 +51,7 @@ export class CatalogueListComponent implements OnInit {
   }
 
 
-  wishSet(product){
-    this.restUser.wishSet(this.user._id, product._id).subscribe((res: any)=>{
-      if(res.userFind2){
-        delete res.userFind2.password;
-        this.user = res.userFind2;
-        localStorage.setItem('user', JSON.stringify(this.user));
-        this.snackBar.open('Agregado lista de deseos ⭐', 'Cerrar', {
-          duration: 2000,
-          horizontalPosition: 'left',
-          verticalPosition: 'bottom',
-          panelClass: ['mat-toolbar', 'mat-accent']
-        });
-      }
-      
-    })
-  }
+
 
   openProduct(product): void {
     const dialogRef = this.dialog.open(ProductViewComponent, {

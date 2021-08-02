@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { RestProductService } from 'src/app/services/restProduct/rest-product.service';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
@@ -70,7 +71,7 @@ export class ProductViewComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ProductViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private restProduct: RestProductService,
-    private restUser: RestUserService, public snackBar: MatSnackBar) { 
+    private restUser: RestUserService, public snackBar: MatSnackBar, private router: Router) { 
       this.product = new Product('','',0,0,0,'','','','','','')
     }
 
@@ -86,18 +87,49 @@ export class ProductViewComponent implements OnInit {
     })
   }
 
+  wishSet(){
+    this.restUser.wishSet(this.user._id, this.product._id).subscribe((res: any)=>{
+      if(res.userFind2){
+        delete res.userFind2.password;
+        this.user = res.userFind2;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.snackBar.open('Agregado lista de deseos ⭐', 'Cerrar', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-accent']
+        });
+      }
+      
+    })
+  }
+
   carshop(){
     this.restUser.shopping(this.user._id, this.product).subscribe((res:any)=>{
       if(res.userPush){
         delete res.userPush.password;
         this.user = res.userPush;
         localStorage.setItem('user', JSON.stringify(this.user));
-        this.snackBar.open('Agregado al Carrito', 'Cerrar', {
+        this.snackBar.open('Agregado al Carrito', '🛒', {
           duration: 2000,
           horizontalPosition: 'left',
           verticalPosition: 'bottom',
-          panelClass: ['mat-toolbar', 'mat-accent']
+          panelClass: ['blue-snackbar']
         });
+        this.onNoClick()
+        this.router.navigateByUrl('carrito')
+      }else if(res.userAct){
+        delete res.userAct.password;
+        this.user = res.userAct;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.snackBar.open('Agregado al Carrito ', '☑️', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['blue-snackbar']
+        });
+        this.onNoClick()
+        this.router.navigateByUrl('carrito')
       }else{
         alert(res.message)
       }

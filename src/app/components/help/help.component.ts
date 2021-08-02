@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
+import { client } from './client';
+
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
@@ -7,12 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+  help: any[];
+  searchHelpSeller;
+  inp = true;
+
+  constructor() { 
+    Object.assign(this, { help });
+  }
 
   ngOnInit(): void {
   }
 
+  ngDoCheck(){
+    
+    if(this.searchHelpSeller=='' || this.searchHelpSeller==undefined || this.searchHelpSeller==null){
+      this.inp=true;
+    }else{
+      this.inp=false;
+    }
+  }
 }
+
+
+import { help } from './help';
 
 @Component({
   selector: 'app-help-client',
@@ -21,10 +42,26 @@ export class HelpComponent implements OnInit {
 })
 export class HelpClientComponent implements OnInit {
 
-  constructor() { }
+  client: any[];
+  searchHelpSeller;
+  inp = true;
+
+  constructor() { 
+    Object.assign(this, { client });
+  }
 
   ngOnInit(): void {
   }
+
+  ngDoCheck(){
+    
+    if(this.searchHelpSeller=='' || this.searchHelpSeller==undefined || this.searchHelpSeller==null){
+      this.inp=true;
+    }else{
+      this.inp=false;
+    }
+  }
+  
 
 }
 
@@ -62,7 +99,6 @@ export class HelpSellerComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.questions)
   }
 
   ngDoCheck(){

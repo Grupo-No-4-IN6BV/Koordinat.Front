@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
+import { DialogData } from '../white-list/white-list.component';
 
 @Component({
   selector: 'app-shooping-car',
@@ -11,7 +14,8 @@ export class ShoopingCarComponent implements OnInit {
   car:[];
   total;
 
-  constructor(private restUser: RestUserService,) { }
+  constructor(private restUser: RestUserService, public snackBar: MatSnackBar,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.user = this.restUser.getUser();
@@ -25,4 +29,63 @@ export class ShoopingCarComponent implements OnInit {
     console.log("Total: ", this.total)
   }
 
+  checkIn(){
+    this.restUser.checkIn(this.user._id).subscribe((res:any)=>{
+      if(res.userUpdated){
+        alert(res.message)
+      }
+    })
+  }
+  removeProduct(product): void {
+    const dialogRef = this.dialog.open(ShoopingCarDeleteComponent, {
+      height: '460px',
+      width: '800px',
+      data: {id: product._id, name: product.name},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
+
+}
+
+@Component({
+  selector: 'app-shooping-car-delete',
+  templateUrl: './shooping-car.delete.component.html',
+  styleUrls: ['./shooping-car.component.scss']
+})
+
+export class ShoopingCarDeleteComponent implements OnInit {
+
+  user;
+
+  constructor(public dialogRef: MatDialogRef<ShoopingCarDeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,private restUser: RestUserService, public snackBar: MatSnackBar) { }
+
+  ngOnInit() { 
+    this.user = this.restUser.getUser();
+  }
+
+
+  removeItem(){
+    this.restUser.removeItem(this.user._id, this.data.id).subscribe((res:any)=>{
+      if(res.itemact){
+        delete res.itemact.password;
+        this.user = res.itemact;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.snackBar.open('Eliminado', 'Cerrar', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-accent']
+        });
+        this.onNoClick()
+      }
+      
+    })
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

@@ -1,11 +1,55 @@
-#container{
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#kekw{
+  height: 20vh;
+  width: 100%;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  display: flex;
+}
+
+#titleH1{
+color: white;
+font-size: 35px;
+padding: 25px;
+}
+
+#obj2{
+  padding: 30px;
+  margin-block: 30px;
+  //background-color: red;
+  display: flex;
+  justify-content: left;
+}
+
+#obj1{
+ //background-color: green;
+  padding: 30px;
+  margin-block: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#delocos{
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  //background-color: aquamarine;
+  padding: 30px;
+
+  margin-inline: 100px;
 }
 
 //TBL
+
+#btnContainer{
+  width: 50px;
+}
+
+#btnTable{
+  padding: -30px;
+}
 
 html,
 body {
@@ -21,8 +65,7 @@ body {
 .containerTbl {
 
   //para posicion
-   margin-left: 8vw;
-   margin-top: 15vh;
+   margin-top: 2vh;
 
 	/*position: absolute;
 	top: 50%;
@@ -31,7 +74,6 @@ body {
 }
 
 table {
-
 	width: 700px;
 	/*border-collapse: collapse;
 	overflow: hidden;*/
@@ -46,7 +88,7 @@ td {
 }
 
 th {
-	text-align: left;
+	text-align: center;
 }
 
 thead {
@@ -56,6 +98,9 @@ thead {
 }
 
 
+#actiontitle{
+  margin-left: 120px;
+}
 
 
 
@@ -87,13 +132,9 @@ thead {
   --dark: hsl(var(--hue), 25%, 10%);
   /*--grey: hsl(0, 0%, 50%);*/
   position: relative;
-  padding: 40px;
   width: 280px;
   height: 280px;
-  margin: 40px;
   float: right;
-  margin-right: 20%;
-  margin-top: -180px;  
   perspective: 1000px;
 }
 
@@ -163,11 +204,10 @@ figure,
 
 /* img */
 img {
-  height: 100%;
-  border-radius: 24px;
+  border-radius: 3px;
 }
 
-/* figcaption */
+/* figcaption *//*
 figcaption {
   display: block;
 
@@ -187,7 +227,7 @@ figcaption {
 
   color: var(--white-1);
   background: hsla(var(--hue), 25%, 10%, .5);
-}
+}*/
 
 /* .img-bg */
 .img-bg {
@@ -274,7 +314,7 @@ li:not(:last-child)::after {
 }
 
 /* button */
-button {
+#button {
   font-family: inherit;
   font-weight: bold;
   color: var(--white-1);
@@ -290,14 +330,14 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-button:focus {
+#button:hover,
+#button:focus {
   color: var(--primary);
   background: hsla(var(--hue), 25%, 10%, .2);
   border-color: currentColor;
 }
 
-button:active {
+#button:active {
   transform: translate(2px);
 }
 
@@ -316,8 +356,8 @@ button:active {
 
   pointer-events: none;
 }
+/*
 
-/* .design */
 .design {
   display: block;
 
@@ -340,8 +380,8 @@ button:active {
 .design--2 {
   top: 0;
   transform: translateY(calc((var(--tr) - (var(--tr) * 2)) * 1%))
-}
-
+}*/
+/*
 .design--1 {
   left: 20%;
 }
@@ -399,11 +439,11 @@ button:active {
 .design--8 {
   top: 56%;
 }
-
+*/
 /* states */
-button:hover+.design-container,
-button:active+.design-container,
-button:focus+.design-container {
+#button:hover+.design-container,
+#button:active+.design-container,
+#button:focus+.design-container {
   --tr: 20;
   --op: .7;
 }
@@ -419,17 +459,5 @@ button:focus+.design-container {
 
 
 
-#delocos{
-    justify-content:center;
-    align-items:center;
-    text-align: center;
-}
 
-#obj2{
-    float: right;
-    margin-top: 140px;
-}
 
-#obj1{
-    float: left;
-}

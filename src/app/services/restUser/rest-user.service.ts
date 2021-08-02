@@ -72,5 +72,42 @@ shopping(idUser, product){
   .pipe(map(this.extractData))
 }
 
+removeItem(idUser, idProduct){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  return this.http.post(this.uri+idUser+'/removeItem/'+idProduct, null, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+checkIn(idUser){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  return this.http.post(this.uri+idUser+'/checkIn', null, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+deleteUser(idUser, password){
+  let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+  })
+  return this.http.put(this.uri+'removeUser/'+idUser, {password: password}, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+updateUser(idUser){
+  let params = JSON.stringify(idUser);
+  let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+  })
+  return this.http.put(this.uri+'updateUser/'+idUser._id, params, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
 }
 

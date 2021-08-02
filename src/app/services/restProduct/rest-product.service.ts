@@ -73,4 +73,31 @@ getProduct(idProduct){
   .pipe(map(this.extractData))
 }
 
+notification(idBussines){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  })
+  return this.http.get(this.uri+'notification/'+idBussines, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+updateProduct(Prod){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  })
+  let params = JSON.stringify(Prod);
+  return this.http.put(this.uri+'updateProduct/'+Prod, params, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+orders(idBussines){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  })
+  return this.http.get(this.uri+'orders/'+idBussines,  {headers: headers})
+  .pipe(map(this.extractData))
+}
 }

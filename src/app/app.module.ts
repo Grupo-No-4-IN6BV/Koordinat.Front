@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NabvarComponent } from './components/nabvar/nabvar.component';
 import { HelpClientComponent, HelpComponent, HelpInfoComponent, HelpSellerComponent, HelpTermsacodesComponent } from './components/help/help.component';
-import { UserComponent, UserDeleteComponent } from './components/user/user.component';
+import { UserComponent, UserDeleteComponent, UserUpdateComponent } from './components/user/user.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './styles/material.module';
@@ -24,9 +24,9 @@ import { UsersComponent } from './components/users/users.component';
 import { BusinessesComponent } from './components/businesses/businesses.component';
 import { CategoryComponent, CategorySaveComponent } from './components/category/category.component';
 
-import { ProductComponent, ProductDeleteComponent, ProductSaveComponent } from './components/product/product.component';
+import { ProductComponent, ProductDeleteComponent, ProductSaveComponent, ProductUpdateComponent } from './components/product/product.component';
 import { ProductViewComponent, WhiteListComponent, WhiteListDeleteComponent } from './components/white-list/white-list.component';
-import { ShoopingCarComponent } from './components/shooping-car/shooping-car.component';
+import { ShoopingCarComponent, ShoopingCarDeleteComponent } from './components/shooping-car/shooping-car.component';
 import { OfferComponent } from './components/offer/offer.component';
 import { CatalogueComponent, CatalogueSidebarComponent } from './components/catalogue/catalogue.component';
 import { SearchHelpSellerPipe } from './pipe/search/search-help-seller.pipe';
@@ -34,6 +34,7 @@ import * as Hammer from 'hammerjs';
 import { CatalogueListComponent } from './components/catalogue-list/catalogue-list.component';
 import { SearchPipe } from './pipe/category/search.pipe';
 import { SearchNamePipe } from './pipe/category/search-name.pipe';
+import { OrderComponent } from './components/order/order.component';
 
 
 
@@ -49,6 +50,7 @@ import { SearchNamePipe } from './pipe/category/search-name.pipe';
     // <<User>>
     UserComponent,
     UserDeleteComponent,
+    UserUpdateComponent,
     UsersComponent,
 
     // <<Auth>>
@@ -78,7 +80,7 @@ import { SearchNamePipe } from './pipe/category/search-name.pipe';
     CategoryComponent,
     CategorySaveComponent,
     CatalogueSidebarComponent,
-
+    ShoopingCarDeleteComponent,
 
     //Productos
     ProductComponent,
@@ -90,6 +92,8 @@ import { SearchNamePipe } from './pipe/category/search-name.pipe';
     ProductViewComponent,
     WhiteListDeleteComponent,
     ProductDeleteComponent,
+    ProductUpdateComponent,
+    OrderComponent,
   ],
 
   imports: [

@@ -60,8 +60,8 @@ export class ProductComponent implements OnInit {
 
   removeProduct(product): void {
     const dialogRef = this.dialog.open(ProductDeleteComponent, {
-      height: '460px',
-      width: '800px',
+      height: '280px',
+      width: '250px',
       data: {id: product._id, name: product.name},
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -74,6 +74,17 @@ export class ProductComponent implements OnInit {
       height: '400px',
       width: '800px',
       data: {id: product._id, auth: 'onlyView'},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
+  openUpdate(product): void{
+    const dialogRef = this.dialog.open(ProductUpdateComponent, {
+      height: '400px',
+      width: '800px',
+      data: {id: product._id},
     });
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
@@ -103,7 +114,7 @@ export class ProductDeleteComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  
   removeProduct(){
     this.restProduct.removeProduct(this.data.id).subscribe((res:any)=>{
       if(res.productRemoved){
@@ -219,5 +230,69 @@ export class ProductSaveComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'app-product-update',
+  templateUrl: 'product.update.component.html',
+  styleUrls: ['./product.component.scss']
+})
+
+export class ProductUpdateComponent implements OnInit {
+
+  public product: Product;
+  public message;
+  public category: Category;
+  public token;
+  categories:[];
+  selectedCate;
+
+  constructor(public dialogRef: MatDialogRef<ProductUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private restCategory: RestCategoryService ,private restProduct: RestProductService,
+    public snackBar: MatSnackBar,) { 
+      this.product = new Product('','',0,0,0,'','','','','','')
+      this.category = new Category('','','')
+    }
+
+  ngOnInit() { 
+    this.restCategory.getCategories().subscribe((res:any)=>{
+      if(res.categories){
+        this.categories = res.categories;    
+      }else{
+        alert(res.message)
+      }
+    })
+    this.restProduct.getProduct(this.data.id).subscribe((res:any)=>{
+      if(res.product){
+        this.product = res.product;
+        console.log(this.product)
+      }else{
+        alert(res.message)
+      }
+    })
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+  updateProduct(){
+    this.restProduct.updateProduct(this.product).subscribe((res:any)=>{
+      if(res.productUpdate){
+        this.message = res.message;
+        this.onNoClick();
+        localStorage.setItem('product', JSON.stringify(res.productUpdate))
+        this.snackBar.open(res.message, 'cerrar', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-accent']
+          });
+      }else{
+        this.message = res.message;
+      }
+    }, 
+    error=> alert(error.error.message))
   }
 }

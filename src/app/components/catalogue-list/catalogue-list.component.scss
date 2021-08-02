@@ -51,10 +51,11 @@
 
   //CSS DE LA CARD QUE SI SIRVE
   #bodyCard{
-    max-width: 350px;
-    max-height: 400px;
-    min-width: 350px;
-    min-height: 400px;
+    cursor: pointer;
+    max-width: 200px;
+    max-height: 360px;
+    min-width: 200px;
+    min-height: 360px;
     background-color: whitesmoke;
     justify-content: center;
     border-radius: 5px;
@@ -70,6 +71,7 @@
     margin-top: 10px;
     font-family: Gill Sans, sans-serif;;  
     font-weight: bold;
+    height: 40px;
   }
 
   #imgCard{
@@ -81,16 +83,14 @@
   }
 
   #descCard{
-    text-align: justify;
+    text-align: center;
     font-family: Gill Sans, sans-serif;;
     font-size: 15px;
     padding: 10px;
-    min-width: 330px;
-    min-height: 100px;
-    max-width: 330px;
-    max-height: 100px;
-    display: flex;
-    align-items: center;
+    min-width: 170px;
+    min-height: 50px;
+    max-width: 170px;
+    max-height: 50px;
   }
 
   #catCard{

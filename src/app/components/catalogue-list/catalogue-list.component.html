@@ -29,24 +29,13 @@
 
   <div  id="diosssssss">
     <div id="allCard" *ngFor="let product of products |  search: categoryS | searchName: searchName">
-      <div id="bodyCard">
+      <div id="bodyCard" (click)="openProduct(product)">
         <div id="headerCard">{{product['name']}}</div>
         <div><img id="imgCard" src="{{product['img1']}}"></div>
-        <div id="descCard"><p>{{product['description']}}</p></div>
+        <div id="descCard"><p>Q.{{product['price']}}.00</p></div>
         <ng-container *ngFor="let category of categories">
           <p id="catCard" *ngIf="product['category'] == category['_id']">Categoria: {{category['name']}}</p>
         </ng-container>
-        <mat-card-actions style="text-align: end;">
-
-
-          
-
-          <button mat-icon-button (click)="openProduct(product)" ><mat-icon>open_in_new</mat-icon></button>
-          <button mat-icon-button (click)="wishSet(product)" *ngIf="auth == 'userView'" ><mat-icon>fact_check</mat-icon></button>
-          <button mat-icon-button *ngIf="auth == 'userView'"><mat-icon>shopping_cart</mat-icon></button>
-          <button mat-icon-button disabled *ngIf="auth == 'onlyView'"><mat-icon>fact_check</mat-icon></button>
-          <button mat-icon-button disabled *ngIf="auth == 'onlyView'"><mat-icon>shopping_cart</mat-icon></button>
-        </mat-card-actions>
       </div>
     </div>
   </div>

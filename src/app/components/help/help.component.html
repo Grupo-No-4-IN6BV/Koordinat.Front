@@ -3,29 +3,29 @@
 <br>
 <br>
 <div class="letter">
-    <div id="columns">
+    <div id="files">
         <div class="field" id="searchform">
-            <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" />
+            <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" [(ngModel)]="searchHelpSeller" type="search" name="search" >
             <button type="button" id="search">Buscar
             </button>
         </div>
-        <div id="col1">
-            <div class="title">PREGUNTAS FRECUENTES</div>
-            <div class="body">
-                <div class="qstion">¿Que pasa pa?</div>
-                <div class="qstion">¿Porque lastraño sosio?</div>
-                <div class="qstion">¿Aun tengo razones para vivir? no</div>
-            </div>   
-        </div>
-        <div id="col2">
-            <div class="title">¿BUSCAS ALGO MÁS?</div>
-            <div class="body">
-                <div class="qstion">Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio
-                    Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio Lastraño sosio
+        <div id="ssTitle">Ayuda</div> 
+        <div id="ssSubtitle">KOORDINAT.HELPSELLER@OUTLOOK.COM</div>
+        <div id="ssBody" >
+            <div class="qstion" *ngIf="inp == true">
+                <!--Preguntas Frecuentes-->
+                <div id="ssSubtitle"><p>¿Cómo filtro un producto?</p></div>
+                <p>Cuando Andre haga el algoritmo, te digo</p>
+                <!--/Preguntas Frecuentes-->
+            </div>
+            <div *ngIf="inp == false">
+                <div class="qstion" *ngFor="let question of help | searchHelpSeller:searchHelpSeller">
+                    <div id="ssSubtitle"><p>{{question.titulo}}</p></div>
+                    <p>{{question.descripcion}}</p>
                 </div>
-                <div class="qstion"> alludaaa</div>
-                <div class="qstion"><img class="img" id="img1" src="https://i.pinimg.com/originals/37/80/da/3780da1f762d307271c78b0dfd91cba9.png"></div>
-            </div>   
+            </div>
+            <br>         
+            <div id="ssSubtitle">KOORDINAT.HELPSELLER@OUTLOOK.COM</div>    
         </div>
     </div>   
 </div>

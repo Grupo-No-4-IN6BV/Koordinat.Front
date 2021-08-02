@@ -217,3 +217,60 @@
  #tableTitle{
   font-weight: bold;
  }
+
+ //kek
+ html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+	font-weight: 100;
+}
+
+.containerTbl {
+
+  //para posicion
+   margin-top: 2vh;
+
+	/*position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -50%);*/
+}
+
+table {
+	width: 950px;
+	/*border-collapse: collapse;
+	overflow: hidden;*/
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+  text-align: center;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.7);
+	color: black;
+}
+
+th {
+	text-align: center;
+}
+
+thead {
+	th {
+		background-color: #ffffff;
+	}
+}
+
+#delocos{
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  background-color: green;
+  display: flex;
+}
+

@@ -1,0 +1,25 @@
+<br><br><br>
+<div class="container">
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">pending_actions</span>Pedidos</button>
+</div>
+
+<div *ngFor="let order of orders">
+    <mat-card>
+        <div class="row">
+            <div class="col-lg-3">
+                <p>{{order['producto']}}</p>
+            </div>
+            <div class="col-lg-2">
+                <p>{{order['cantidad']}}</p>
+            </div>
+            <div class="col-lg-2">
+                <p>{{order['subtotal']}}</p>
+            </div>
+            <div class="col-lg-2">
+                <!--   -->
+                <p>{{order['producto']}}</p>
+            </div>
+        </div>
+    </mat-card>
+</div>
+

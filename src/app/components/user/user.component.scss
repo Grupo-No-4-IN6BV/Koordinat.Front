@@ -17,6 +17,7 @@ mat-card{
 
 .tit{
     font-size: smaller;
+    font-weight: bold;
 }
 .list{
     font-size: small;
@@ -30,4 +31,8 @@ mat-card{
     border-style: solid;
     border-color: rgb(156, 156, 156);
     border-radius: 5px;
+}
+
+h4{
+    font-weight: bold   ;
 }

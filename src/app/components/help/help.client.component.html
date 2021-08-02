@@ -1,4 +1,4 @@
-<br>
+<!--<br>
 <br>
 <br>
 <div class="letter">
@@ -21,5 +21,43 @@
             <div id="saSubtitle">KOORDINAT@OUTLOOK.COM</div>    
         </div>
          
+    </div>   
+</div> --> 
+
+
+<br>
+<br>
+<br>
+<div class="letter">
+    <div id="files">
+        <div class="field" id="searchform">
+            <input type="text" id="searchterm" placeholder="¿Necesitas ayuda?" [(ngModel)]="searchHelpSeller" type="search" name="search" >
+            <button type="button" id="search">Buscar
+            </button>
+        </div>
+        <div id="ssTitle">SERVICIO AL CLIENTE</div> 
+        <div id="saBody">
+            <p>BIENVENIDO AL ÁREA DE SERVICIO AL CLIENTE, SI POSEES ALGUNA DUDA NO DUDES EN CONSULTAR NUESTRA PESTAÑA DE 
+                «AYUDA» O BIEN CONTACTAR A UN MIEMBRO DEL PERSONAL DE SERVICIO AL CLIENTE A TRAVÉS DE UNA SOLICITUD, LA 
+                CUAL SERÁ RESPONDIDAD POR UN MIEMBRO EN UN TIEMPO LÍMITE DE 48 HORAS, O BIEN, A TRAVÉS DE NUESTRO 
+                SERVICIO TELÉFONICO.
+            </p>
+        </div>      
+        <div id="ssBody" >
+            <div class="qstion" *ngIf="inp == true">
+                <!--Preguntas Frecuentes-->
+                <div id="ssSubtitle"><p>¿Cómo filtro un producto?</p></div>
+                <p>Cuando Andre haga el algoritmo, te digo</p>
+                <!--/Preguntas Frecuentes-->
+            </div>
+            <div *ngIf="inp == false">
+                <div class="qstion" *ngFor="let question of client | searchHelpSeller:searchHelpSeller">
+                    <div id="ssSubtitle"><p>{{question.titulo}}</p></div>
+                    <p>{{question.descripcion}}</p>
+                </div>
+            </div>
+            <br>         
+            <div id="ssSubtitle">KOORDINAT.HELPSELLER@OUTLOOK.COM</div>    
+        </div>
     </div>   
 </div>

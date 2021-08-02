@@ -11,7 +11,7 @@
         </div>   
             </div>
             <div class="col-lg-4">
-                <h4>Tus datos personales</h4> 
+                <h4>Tus datos personales:</h4> 
                 <p class="tit">Nombres</p>
                 <p class="list"> {{user.name}} </p>
                 <p class="tit">Apellidos</p>
@@ -31,8 +31,8 @@
             </div>
         </div>
         <div style="text-align: end; margin-bottom: 30px;">
-            <button mat-raised-button color="accent" style="margin-right: 15px;">Editar Cuenta</button>
-            <button mat-raised-button color="warn" style="margin-right: 2vw;">Eliminar Cuenta</button>
+            <button mat-raised-button color="accent" (click)="openDialog2()" style="margin-right: 15px;">Editar Cuenta</button>
+            <button mat-raised-button color="warn" (click)="openDialog()" style="margin-right: 2vw;">Eliminar Cuenta</button>
         </div>
         
     </mat-card>
