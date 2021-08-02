@@ -3,10 +3,12 @@
     <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">pending_actions</span>Pedidos</button>
 </div>
 
+<!--
 <div *ngFor="let order of orders">
     <mat-card>
         <div class="row">
             <div class="col-lg-3">
+                <img src="{{order['image']}}" style="width: 75px; height: 75px;">
                 <p>{{order['producto']}}</p>
             </div>
             <div class="col-lg-2">
@@ -16,10 +18,49 @@
                 <p>{{order['subtotal']}}</p>
             </div>
             <div class="col-lg-2">
-                <!--   -->
-                <p>{{order['producto']}}</p>
+                <button mat-stroked-button color="primary" (click)="openMap(order)">Mapa</button>
+            </div>
+            <div class="col-lg-2">
+                <button mat-stroked-button color="primary" (click)="delOrder(order)">terminar pedido</button>
             </div>
         </div>
     </mat-card>
+</div>
+-->
+
+
+<div id="siisisisi">
+    <div id="delocos" >
+        <div id="obj1"> 
+            <div class="containerTbl">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Existencias</th>
+                            <th>Ubicación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td><img id="tblImg" src="{{order['image']}}" style="width: 75px; height: 75px;"></td>
+                            <td>{{order['producto']}}</td>
+                            <td>Q.{{order['subtotal']}}.00</td>
+                            <td>{{order['cantidad']}}</td>
+                            <td>
+                                <button id="btnMap" mat-stroked-button color="primary" (click)="openMap(order)">Mapa 🗺</button>
+                            </td>
+                            <td>
+                                <button id="btnOrder" mat-stroked-button color="primary" (click)="openMap(order)">Terminar pedido🚚</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 

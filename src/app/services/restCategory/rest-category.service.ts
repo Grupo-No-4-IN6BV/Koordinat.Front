@@ -43,4 +43,23 @@ saveCategory(category){
   return this.http.put(this.uri+'saveCategory', params,  {headers: headers})
   .pipe(map(this.extractData))
 }
+
+updateCategory(idCategory, category){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  });
+  let params = JSON.stringify(category);
+  return this.http.put(this.uri+'updateCategory/'+idCategory, params, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+removeCategory(idCategory){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  });
+  return this.http.put(this.uri+'removeCategory/'+idCategory, null, {headers: headers})
+  .pipe(map(this.extractData))
+}
 }

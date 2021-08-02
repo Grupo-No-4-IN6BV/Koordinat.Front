@@ -1,1 +1,32 @@
-<p>users works!</p>
+<br><br><br>
+<div class="container">
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;"></span>Usuarios registrados</button>
+</div>
+<div id="siisisisi">
+    <div id="delocos" >
+        <div id="obj1"> 
+            <div class="containerTbl">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{user['name']}}</td>
+                            <td>{{user['lastname']}}</td>
+                            <td>{{user['email']}}</td>
+                            <td>{{user['phone']}}</td>
+                            <td>{{user['role']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

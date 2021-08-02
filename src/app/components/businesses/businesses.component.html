@@ -1,1 +1,38 @@
-<p>businesses works!</p>
+
+<div class="container">
+    <mat-card> 
+        <mat-card-title style="margin-top: 30px; margin-left: 2vw"> Perfil </mat-card-title>
+        <p style="margin-bottom: 20px; margin-left: 2vw; font-size: 11px;">Perfil empresarial</p>
+        <div class="row">
+            <div class="col-lg-4" >
+            <h4 style="margin-left: 2vw">Logo de la Empresa</h4>  
+            <div class="container" style="height: 85%;">
+            <img src="{{user.image}}" class="imgUser">  
+        </div>   
+            </div>
+            <div class="col-lg-4">
+                <h4>Datos de la empresa:</h4> 
+                <p class="tit">Nombre de la Empresa</p>
+                <p class="list"> {{user.name}} </p>
+                <p class="tit">Descripción de la Empresa</p>
+                <p class="list"> {{user.description}} </p>
+                <p class="tit">Correo Electrónico</p>
+                <p class="list"> {{user.email}} </p>
+                <p class="tit">Número Telefonico</p>
+                <p class="list"> +502 {{user.phone}} </p>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <h4>Localidad del negocio</h4>  
+                <div class="container" style="height: 75%;">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: end; margin-bottom: 30px;">
+            <button mat-raised-button color="accent" (click)="openUpdate()" style="margin-right: 15px;">Editar Cuenta</button>
+            <button mat-raised-button color="warn" (click)="openDialog()"  style="margin-right: 2vw;">Eliminar Cuenta</button>
+        </div>
+        
+    </mat-card>
+    
+</div>

@@ -1,0 +1,32 @@
+<div>
+    <div >
+      <h1>Edita tu empresa</h1>
+    </div>
+</div>
+
+<div>
+    <form #updateForm="ngForm">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nombre de Empresa</mat-label>
+                    <input matInput name="name" [(ngModel)]="business.name" #name='ngModel' autocomplete="off" required>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <span matPrefix>+502 &nbsp;</span>
+                    <input type="number" matInput [(ngModel)]="business.phone" #phone='ngModel' placeholder="2225-1234" autocomplete="off" name="phone" min="11111111" required max="99999999">
+                    <mat-icon matSuffix>phone</mat-icon>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Descripción de la Empresa</mat-label>
+                    <input matInput  name="description" [(ngModel)]="business.description" #description='ngModel' autocomplete="off" type="text" required>
+                  </mat-form-field>
+
+    </form>
+</div>
+
+<div style="text-align: end; margin-top: 15px; margin-right: 15px;">
+    <button style="margin-left: 10px;" mat-stroked-button color="warn" type="button" (click)="updateBussiness()" >Actualizar</button>
+</div>

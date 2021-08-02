@@ -100,7 +100,6 @@ export class ProductViewComponent implements OnInit {
           panelClass: ['mat-toolbar', 'mat-accent']
         });
       }
-      
     })
   }
 
@@ -131,7 +130,12 @@ export class ProductViewComponent implements OnInit {
         this.onNoClick()
         this.router.navigateByUrl('carrito')
       }else{
-        alert(res.message)
+        this.snackBar.open(res.message, '❌', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-warn']
+        });
       }
     })
   }

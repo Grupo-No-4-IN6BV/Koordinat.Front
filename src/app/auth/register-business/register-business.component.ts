@@ -28,7 +28,7 @@ export class RegisterBusinessComponent implements OnInit {
 
   constructor( public componentFactoryResolver: ComponentFactoryResolver, public snackBar: MatSnackBar, private auth: AuthService,
     private storage: AngularFireStorage) { 
-    this.business = new Business('','','','',null,'',0,0,[])
+    this.business = new Business('','','','','',null,'',0,0,[])
   }
 
   ngOnInit(): void {

@@ -26,20 +26,28 @@ export class ShoopingCarComponent implements OnInit {
       obj,
     ) => acc + (obj.subtotal * obj.cantidad),
     0);
-    console.log("Total: ", this.total)
   }
 
   checkIn(){
     this.restUser.checkIn(this.user._id).subscribe((res:any)=>{
-      if(res.userUpdated){
-        alert(res.message)
+      if(res.userupd){
+        delete res.userupd.password;
+        this.user = res.userupd;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.snackBar.open('Pedido en Camino', '🚚💨', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'bottom',
+          panelClass: ['mat-toolbar', 'mat-accent']
+        });
+        this.ngOnInit()
       }
     })
   }
   removeProduct(product): void {
     const dialogRef = this.dialog.open(ShoopingCarDeleteComponent, {
-      height: '460px',
-      width: '800px',
+      height: '280px',
+      width: '250px',
       data: {id: product._id, name: product.name},
     });
     dialogRef.afterClosed().subscribe(result => {

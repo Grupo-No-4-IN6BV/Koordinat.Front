@@ -100,4 +100,14 @@ orders(idBussines){
   return this.http.get(this.uri+'orders/'+idBussines,  {headers: headers})
   .pipe(map(this.extractData))
 }
+
+delOrder(order){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.restUser.getToken()
+  })
+  let params = JSON.stringify(order);
+  return this.http.put(this.uri+'delOrder', params, {headers: headers})
+  .pipe(map(this.extractData))
+}
 }

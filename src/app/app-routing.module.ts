@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterBusinessComponent } from './auth/register-business/register-business.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { BusinessComponent } from './components/business/business.component';
 import { BusinessesComponent } from './components/businesses/businesses.component';
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -16,19 +17,21 @@ import { ShoopingCarComponent } from './components/shooping-car/shooping-car.com
 import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 import { WhiteListComponent } from './components/white-list/white-list.component';
+import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'user', component: UserComponent},
-  {path: 'users', component: UsersComponent},
+  {path: 'users', canActivate: [AdminGuard] ,component: UsersComponent},
   {path: 'deseos', component: WhiteListComponent},
   {path: 'carrito', component: ShoopingCarComponent},
   {path: 'ofertas', component: OfferComponent},
   {path: 'catalogo', component: CatalogueComponent},
 
   // <<Business>>
-  {path: 'empresas', component: BusinessesComponent},
-  {path: 'categorias', component: CategoryComponent},
+  {path: 'empresa', component: BusinessesComponent},
+  {path: 'empresas', canActivate: [AdminGuard] ,component: BusinessComponent},
+  {path: 'categorias', canActivate: [AdminGuard] ,component: CategoryComponent},
   {path: 'productos', component: ProductComponent},
   {path: 'pedidos', component: OrderComponent},
 

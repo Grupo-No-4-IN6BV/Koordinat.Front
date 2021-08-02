@@ -12,6 +12,7 @@ export class RestUserService {
   public uri: string;
   public token;
   public user;
+  public business;
 
   constructor(private http:HttpClient) {
     this.uri = CONNECTION.URI;
@@ -20,6 +21,12 @@ export class RestUserService {
 private extractData(res: Response){
   let body = res;
   return body || [] || {};
+}
+
+public httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
 }
 
 getToken(){
@@ -42,6 +49,15 @@ getUser(){
   return this.user;
 }
 
+getBussiness(){
+  let business = JSON.parse(localStorage.getItem('business'));
+  if(business !=null || business != undefined){
+    this.business = business;
+  }else{
+    this.business = null;
+  }
+  return this.business;
+}
 
 wishSet(idUser, idProduct){
   let headers = new HttpHeaders({
@@ -99,6 +115,15 @@ deleteUser(idUser, password){
   .pipe(map(this.extractData))
 }
 
+deleteBuss(idUser, password){
+  let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+  })
+  return this.http.put(this.uri+'removeBuss/'+idUser, {password: password}, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
 updateUser(idUser){
   let params = JSON.stringify(idUser);
   let headers = new HttpHeaders({
@@ -106,6 +131,37 @@ updateUser(idUser){
       'Authorization': this.getToken()
   })
   return this.http.put(this.uri+'updateUser/'+idUser._id, params, {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+
+getUsers(){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+
+  return this.http.get(this.uri+'getUsers',  {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+getInterprises(){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  
+  return this.http.get(this.uri+'getInterprises', {headers: headers})
+  .pipe(map(this.extractData))
+}
+
+updateBussines(bussUpdate){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  })
+  let params = JSON.stringify(bussUpdate);
+  return this.http.put(this.uri+'updateBusiness/'+bussUpdate._id, params, {headers: headers})
   .pipe(map(this.extractData))
 }
 

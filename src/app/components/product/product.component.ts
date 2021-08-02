@@ -156,7 +156,7 @@ export class ProductSaveComponent implements OnInit {
     private restProduct: RestProductService, public snackBar: MatSnackBar,
     private storage: AngularFireStorage, private restCategory: RestCategoryService,
     private restUser: RestUserService) {
-      this.category = new Category('','','')
+      this.category = new Category('','','','')
       this.product = new Product('','',0,0,0,'','','','','','')
     }
 
@@ -252,7 +252,7 @@ export class ProductUpdateComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private restCategory: RestCategoryService ,private restProduct: RestProductService,
     public snackBar: MatSnackBar,) { 
       this.product = new Product('','',0,0,0,'','','','','','')
-      this.category = new Category('','','')
+      this.category = new Category('','','','')
     }
 
   ngOnInit() { 

@@ -11,7 +11,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     margin: 26px auto 0;
     max-width: 800px;
-    min-height: 600px;
+    min-height: 300px;
     padding: 24px;
     position: relative;
     width: 80%;
@@ -270,8 +270,16 @@ body {
 
 
 #btnTerminos{
-  margin-top: 30px;
-  display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  background-image: url("https://media0.giphy.com/media/MsUs7RteSQjcc/giphy.gif");
+  color: white;
+  margin-top: 30px;
+}
+
+#estesolosirveparacentrar{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

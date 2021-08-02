@@ -1,0 +1,32 @@
+<br><br><br>
+
+<div class="container">
+    <button id="titleH1" mat-stroked-button disabled><span class="material-icons" style="font-size: 35px; margin-right: 10px; margin-top: -10px;">business</span>Empresas Afiliadas</button>
+</div>
+
+<div id="siisisisi">
+    <div id="delocos" >
+        <div id="obj1"> 
+            <div class="containerTbl">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of interprises">
+                            <td><img src="{{business['image']}}"  style="width: 40px; height: 40px;"></td>
+                            <td>{{business['name']}}</td>
+                            <td>{{business['email']}}</td>
+                            <td>{{business['phone']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

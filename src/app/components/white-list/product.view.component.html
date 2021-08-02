@@ -28,10 +28,12 @@
   <div class="col-lg-4">
     <div class="row">
       <div class="col-lg-6">
-        <button mat-raised-button style="width: 100%; margin-bottom: 15px; background-color: black; color: #fff; margin-top: 10px;" type="submit" *ngIf="data.auth == 'userView'" (click)="carshop()"  >Comprar</button>
+        <button mat-raised-button style="width: 100%;"  class="btnKEK2" mat-stroked-button *ngIf="data.auth == 'userView'" (click)="carshop()" routerLink="register">Comprar</button>
+        <!--<button mat-raised-button style="width: 100%; margin-bottom: 15px; background-color: black; color: #fff; margin-top: 10px;" type="submit" *ngIf="data.auth == 'userView'" (click)="carshop()"  >Comprar</button>-->
       </div>
       <div class="col-lg-6">
-        <button mat-raised-button style="width: 100%; margin-bottom: 15px; background-color: black; color: #fff; margin-top: 10px;" type="submit" *ngIf="data.auth == 'userView'" (click)="wishSet()" >Deseo</button>
+        <button mat-raised-button style="width: 100%;" class="btnKEK2" mat-stroked-button *ngIf="data.auth == 'userView'" (click)="wishSet()" routerLink="register">Desear</button>
+        <!--<button mat-raised-button style="width: 100%; margin-bottom: 15px; background-color: black; color: #fff; margin-top: 10px;" type="submit" *ngIf="data.auth == 'userView'" (click)="wishSet()" >Deseo</button>-->
       </div>
     </div>
     
@@ -39,9 +41,8 @@
     <ng-container *ngIf="data.auth == 'onlyView'" >
       
      
-      
-      <button mat-raised-button color="warn" style="width: 100%; margin-bottom: -15px; background-color: black; color: #fff; margin-top: 10px;" (click)="onNoClick()" routerLink="register">¡Registrate o Ingresa!</button>
-      <button mat-raised-button color="warn" style="width: 100%; margin-bottom: -15px; background-color: black; color: #fff; margin-top: 10px;" (click)="onNoClick()" >Terminar Vista Previa</button>
+      <button mat-raised-button style="width: 100%; margin-bottom: -15px;"  class="btnKEK" mat-stroked-button (click)="onNoClick()" routerLink="register">¡Registrate o Ingresa!</button>
+      <button mat-raised-button style="width: 100%; margin-bottom: -15px;"  class="btnKEK" mat-stroked-button (click)="onNoClick()">Terminar Vista Previa</button>
     </ng-container>
   </div>
 </div>

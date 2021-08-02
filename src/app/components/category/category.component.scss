@@ -98,3 +98,142 @@
     height: 130px;
   }
   
+
+  //LA TABLAAAAAAAAAAAAAAA
+  //KEKW
+
+
+ html,
+ body {
+   height: 100%;
+ }
+ 
+ body {
+   margin: 0;
+   font-family: sans-serif;
+   font-weight: 100;
+
+ }
+ 
+ .containerTbl {
+ 
+   //para posicion
+    margin-top: 2vh;
+    margin-bottom: 50px;
+   /*position: absolute;
+   top: 50%;
+   left: 20%;
+   transform: translate(-50%, -50%);*/
+ }
+ 
+ table {
+   width: 950px;
+   /*border-collapse: collapse;
+   overflow: hidden;*/
+   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+ }
+ 
+ th,
+ td {
+   text-align: center;
+   padding: 15px;
+   background-color: rgba(255, 255, 255, 0.7);
+   color: black;
+ }
+ 
+ th {
+   text-align: center;
+ }
+ 
+ thead {
+   th {
+     background-color: #ffffff;
+   }
+ }
+ 
+ 
+ 
+ 
+ #delocos{
+   justify-content:center;
+   text-align: center;
+ 
+   display: flex;
+ }
+ 
+ 
+ //TOPBAR
+ 
+ .topBarBtw{
+   justify-content:center;
+   text-align: center;
+   display: flex;
+   height: 60px;
+   width: 70%;
+ }
+ 
+ #cl2{
+   text-align: end;
+   float: right;
+   margin-top: 0;
+   height: 40px;
+   width: 20%;
+   justify-content: center;
+   position: relative;
+ }
+ 
+ #delokoskekw{
+   justify-content:center;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   margin-bottom: 90px;
+ 
+ }
+ 
+ 
+ 
+ h1{
+   font-weight: bold;
+   padding: 20px;
+   margin-bottom: 20px;
+ }
+
+ #delokoskekw2{
+  justify-content:center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+
+.container23{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+
+ //-------BUTTON DELETE---------
+
+ #titleDelete{
+  text-align: center;
+  font-weight: bold;
+ }
+
+ #bodyDelete{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ }
+
+ #btnDelete{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("https://media3.giphy.com/media/tHjHlQXMktlhwuZJun/200w.gif");
+  color: white;
+ }

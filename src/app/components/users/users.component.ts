@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestUserService } from 'src/app/services/restUser/rest-user.service';
+
 
 @Component({
   selector: 'app-users',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  users:[];
+
+  constructor(private restUser:RestUserService) { }
 
   ngOnInit(): void {
+    this.restUser.getUsers().subscribe((res:any)=>{
+      if(res.users){
+        this.users = res.users;
+      }else{
+        alert(res.message)
+      }
+    })
+
   }
 
 }

@@ -21,8 +21,8 @@ import { RegisterBusinessComponent } from './auth/register-business/register-bus
 import { PopperDirective } from './directives/popper.directive';
 import { BUCKET } from '@angular/fire/storage';
 import { UsersComponent } from './components/users/users.component';
-import { BusinessesComponent } from './components/businesses/businesses.component';
-import { CategoryComponent, CategorySaveComponent } from './components/category/category.component';
+import { BusinessDeleteComponent, BusinessesComponent, BusinessUpdateComponent } from './components/businesses/businesses.component';
+import { CategoryComponent, CategoryDeleteComponent, CategorySaveComponent, CategoryUpdateComponent } from './components/category/category.component';
 
 import { ProductComponent, ProductDeleteComponent, ProductSaveComponent, ProductUpdateComponent } from './components/product/product.component';
 import { ProductViewComponent, WhiteListComponent, WhiteListDeleteComponent } from './components/white-list/white-list.component';
@@ -35,6 +35,7 @@ import { CatalogueListComponent } from './components/catalogue-list/catalogue-li
 import { SearchPipe } from './pipe/category/search.pipe';
 import { SearchNamePipe } from './pipe/category/search-name.pipe';
 import { OrderComponent } from './components/order/order.component';
+import { BusinessComponent } from './components/business/business.component';
 
 
 
@@ -69,6 +70,8 @@ import { OrderComponent } from './components/order/order.component';
 
     //Business
     BusinessesComponent,
+    BusinessDeleteComponent,
+    BusinessUpdateComponent,
     
     WhiteListComponent,
     ShoopingCarComponent,
@@ -81,6 +84,8 @@ import { OrderComponent } from './components/order/order.component';
     CategorySaveComponent,
     CatalogueSidebarComponent,
     ShoopingCarDeleteComponent,
+    CategoryUpdateComponent,
+    CategoryDeleteComponent,
 
     //Productos
     ProductComponent,
@@ -94,6 +99,7 @@ import { OrderComponent } from './components/order/order.component';
     ProductDeleteComponent,
     ProductUpdateComponent,
     OrderComponent,
+    BusinessComponent,
   ],
 
   imports: [

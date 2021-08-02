@@ -89,17 +89,13 @@
         <span class="material-icons">keyboard_arrow_down</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before" class="custom-class">
-        <button mat-menu-item routerLink="/user">Perfil</button>
+        <button mat-menu-item *ngIf="vrf==0 && vrf!=null" routerLink="/user">Perfil</button>
+        <button mat-menu-item *ngIf="vrf==2 && vrf!=null" routerLink="/empresa">Perfil de Empresa</button>
         <button mat-menu-item routerLink="/" (click)="logOut()">Cerrar Sesion</button>
-      </mat-menu> 
-      
+    </mat-menu>
     </div>
     <!-- Fin Boton de usuario-->
   </div>
-
-
-
-
 
   <!-- Mensaje Tienda -->
   <ng-container [appPopper]="target" [target]="tooltip"></ng-container>
